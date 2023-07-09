@@ -1,0 +1,1 @@
+# automation-course-template
