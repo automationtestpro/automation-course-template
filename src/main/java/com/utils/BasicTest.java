@@ -16,18 +16,18 @@ public abstract class BasicTest {
     
     public static final Logger logger = LogManager.getLogger();
     protected static WebDriver driver;
-    // private String driverPath;
+    private String driverPath;
 
     @BeforeMethod
     public void preCondition() {
         // Chromedriver path
-        // driverPath = "src/main/resources/WebDrivers/chromedriver.exe";
-        // ChromeOptions options = new ChromeOptions();
-        // System.setProperty("webdriver.chrome.driver", driverPath);
-        // driver = new ChromeDriver(options);
-        WebDriverManager.chromedriver().setup();
+        driverPath = "src/main/resources/WebDrivers/chromedriver";
+        ChromeOptions options = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver", driverPath);
+        driver = new ChromeDriver(options);
+        // WebDriverManager.chromedriver().setup();
         //driver = new ChromeDriver();
-        driver = new FirefoxDriver();
+        //driver = new FirefoxDriver();
         // Maximize the browser
         driver.manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
