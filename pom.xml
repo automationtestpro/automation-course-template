@@ -38,84 +38,84 @@
                     <target>${jdk.level}</target>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>io.qameta.allure</groupId>-->
-<!--                <artifactId>allure-maven</artifactId>-->
-<!--                <version>${allure.maven.version}</version>-->
-<!--                <configuration>-->
-<!--                    <reportVersion>${allure.version}</reportVersion>-->
-<!--                    <allureDownloadUrl>-->
-<!--                        ${allure.cmd.download.url}/${allure.version}/allure-commandline-${allure.version}.zip-->
-<!--                    </allureDownloadUrl>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>io.qameta.allure</groupId>-->
+            <!--                <artifactId>allure-maven</artifactId>-->
+            <!--                <version>${allure.maven.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <reportVersion>${allure.version}</reportVersion>-->
+            <!--                    <allureDownloadUrl>-->
+            <!--                        ${allure.cmd.download.url}/${allure.version}/allure-commandline-${allure.version}.zip-->
+            <!--                    </allureDownloadUrl>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
             <!-- Added Surefire Plugin configuration to execute tests -->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <version>${maven.surefire.plugin.version}</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>test</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>test</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    <testFailureIgnore>true</testFailureIgnore>-->
-<!--                    <argLine>-->
-<!--                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
-<!--                    </argLine>-->
-<!--                    <suiteXmlFiles>-->
-<!--                        <suiteXmlFile>src/test/resources/suites/TestNG.xml</suiteXmlFile>-->
-<!--                    </suiteXmlFiles>-->
-<!--                </configuration>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>org.aspectj</groupId>-->
-<!--                        <artifactId>aspectjweaver</artifactId>-->
-<!--                        <version>${aspectj.version}</version>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/suites/TestNG.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
 
-<!--        <dependency>-->
-<!--            <groupId>io.appium</groupId>-->
-<!--            <artifactId>java-client</artifactId>-->
-<!--            <version>7.5.1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.appium</groupId>-->
+        <!--            <artifactId>java-client</artifactId>-->
+        <!--            <version>7.5.1</version>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.seleniumhq.selenium</groupId>-->
-<!--            <artifactId>selenium-server</artifactId>-->
-<!--            <version>${selenium.version}</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.seleniumhq.selenium</groupId>-->
+        <!--            <artifactId>selenium-server</artifactId>-->
+        <!--            <version>${selenium.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
-<!--        todo update extentreports to new release      -->
-<!--        <dependency>-->
-<!--            <groupId>com.aventstack</groupId>-->
-<!--            <artifactId>extentreports</artifactId>-->
-<!--            <version>${extentreports.version}</version>-->
-<!--        </dependency>-->
-<!--        todo update extentreports-testng-adapter to new release      -->
-<!--        <dependency>-->
-<!--            <groupId>com.aventstack</groupId>-->
-<!--            <artifactId>extentreports-testng-adapter</artifactId>-->
-<!--            <version>${extentreports.adapter.version}</version>-->
-<!--        </dependency>-->
+        <!--        todo update extentreports to new release      -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.aventstack</groupId>-->
+        <!--            <artifactId>extentreports</artifactId>-->
+        <!--            <version>${extentreports.version}</version>-->
+        <!--        </dependency>-->
+        <!--        todo update extentreports-testng-adapter to new release      -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.aventstack</groupId>-->
+        <!--            <artifactId>extentreports-testng-adapter</artifactId>-->
+        <!--            <version>${extentreports.adapter.version}</version>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -123,30 +123,30 @@
             <version>${lombok.version}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>io.github.bonigarcia</groupId>-->
-<!--            <artifactId>webdrivermanager</artifactId>-->
-<!--          &lt;!&ndash;  <version>${webdrivermanager.version}</version> &ndash;&gt;-->
-<!--			<version>5.2.1</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.github.bonigarcia</groupId>-->
+        <!--            <artifactId>webdrivermanager</artifactId>-->
+        <!--          &lt;!&ndash;  <version>${webdrivermanager.version}</version> &ndash;&gt;-->
+        <!--			<version>5.2.1</version>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.logging.log4j</groupId>-->
-<!--            <artifactId>log4j-core</artifactId>-->
-<!--            <version>${log4j.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.logging.log4j</groupId>-->
-<!--            <artifactId>log4j-api</artifactId>-->
-<!--            <version>${log4j.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.logging.log4j</groupId>-->
-<!--            <artifactId>log4j-slf4j-impl</artifactId>-->
-<!--            <version>${log4j.version}</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
 <!--        <dependency>-->
 <!--            <groupId>io.qameta.allure</groupId>-->
 <!--            <artifactId>allure-testng</artifactId>-->
@@ -171,42 +171,42 @@
             <version>${javafaker.version}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi</artifactId>-->
-<!--            <version>4.1.1</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi-ooxml</artifactId>-->
-<!--            <version>4.1.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.poi</groupId>-->
+        <!--            <artifactId>poi</artifactId>-->
+        <!--            <version>4.1.1</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.poi</groupId>-->
+        <!--            <artifactId>poi-ooxml</artifactId>-->
+        <!--            <version>4.1.0</version>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.xmlbeans</groupId>-->
-<!--            <artifactId>xmlbeans</artifactId>-->
-<!--            <version>3.1.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.xmlbeans</groupId>-->
+        <!--            <artifactId>xmlbeans</artifactId>-->
+        <!--            <version>3.1.0</version>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.poi</groupId>-->
-<!--            <artifactId>poi-scratchpad</artifactId>-->
-<!--            <version>5.2.2</version>-->
-<!--        </dependency>-->
-<!--        -->
-<!--        <dependency>-->
-<!--            <groupId>com.applitools</groupId>-->
-<!--            <artifactId>eyes-selenium-java3</artifactId>-->
-<!--            <version>3.213.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
-<!--        -->
-<!--        <dependency>-->
-<!--         <groupId>org.junit.jupiter</groupId>-->
-<!--         <artifactId>junit-jupiter</artifactId>-->
-<!--         <version>5.8.2</version>-->
-<!--         <scope>test</scope>-->
-<!--     </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.poi</groupId>-->
+        <!--            <artifactId>poi-scratchpad</artifactId>-->
+        <!--            <version>5.2.2</version>-->
+        <!--        </dependency>-->
+        <!--        -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.applitools</groupId>-->
+        <!--            <artifactId>eyes-selenium-java3</artifactId>-->
+        <!--            <version>3.213.0</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        -->
+        <!--        <dependency>-->
+        <!--         <groupId>org.junit.jupiter</groupId>-->
+        <!--         <artifactId>junit-jupiter</artifactId>-->
+        <!--         <version>5.8.2</version>-->
+        <!--         <scope>test</scope>-->
+        <!--     </dependency>-->
 
     </dependencies>
 </project>
