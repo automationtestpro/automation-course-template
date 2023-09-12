@@ -8,10 +8,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <jre.level>17</jre.level>
-        <jdk.level>17</jdk.level>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <jre.level>11</jre.level>
+        <jdk.level>11</jdk.level>
         <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
         <selenium.version>4.12.1</selenium.version>

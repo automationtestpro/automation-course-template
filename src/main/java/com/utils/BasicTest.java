@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 
 
 public abstract class BasicTest {
-    
+
 
     protected static WebDriver driver;
-  public   WebDriverWait webDriverWait;
+
     // private String driverPath;
 
     @BeforeMethod
@@ -31,11 +31,11 @@ public abstract class BasicTest {
         // Maximize the browser
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        webDriverWait = new WebDriverWait(driver,Duration.ofSeconds(30));
+
     }
 
     @AfterMethod
-    public void postCondition(){
+    public void postCondition() {
         // Quit the Browser
         driver.quit();
     }
