@@ -1,6 +1,11 @@
 name: Test web
 on:
   workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Suite to be run (smoke/regression)'
+        required: true
+        default: 'smoke'
   push:
     branches:
       - '**'
@@ -32,6 +37,6 @@ jobs:
 
     - name: CI test
       run: |
-        mvn clean test -Dtest=comtest.HomeWorkTest
+        mvn clean test -Dsuite=${{ test_suite }}
 
   
