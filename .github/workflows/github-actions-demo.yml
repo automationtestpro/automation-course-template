@@ -39,4 +39,11 @@ jobs:
       run: |
         mvn clean test -Dsuite=${{ github.event.inputs.test_suite }}
 
+    - uses: actions/upload-artifact@v3
+      if: failure()
+      with:
+        name: testng-report-${{ github.run_number }}
+        path: |
+          target/surefire-reports/emailable-report.html
+
   
