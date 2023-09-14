@@ -37,6 +37,6 @@ jobs:
 
     - name: CI test
       run: |
-        mvn clean test -Dsuite=${{ test_suite }}
+        mvn clean test -Dsuite=${{ github.event.inputs.test_suite }}
 
   
