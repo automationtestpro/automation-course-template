@@ -1,4 +1,4 @@
-name: Test web demo
+name: Test web application demo
 on:
   workflow_dispatch:
     inputs:
@@ -45,4 +45,3 @@ jobs:
           name: testng-report-${{ github.run_number }}
           path: |
             target/surefire-reports/emailable-report.html
-
