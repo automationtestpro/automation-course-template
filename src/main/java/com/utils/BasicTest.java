@@ -2,6 +2,7 @@ package com.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -16,13 +17,15 @@ public abstract class BasicTest {
 
     @BeforeMethod
     public void preCondition() {
-        // Chromedriver path
-        // driverPath = "src/main/resources/WebDrivers/chromedriver.exe";
-        // ChromeOptions options = new ChromeOptions();
-        // System.setProperty("webdriver.chrome.driver", driverPath);
-        // driver = new ChromeDriver(options);
-//        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        //  Chromedriver path
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sanbox");
+        options.addArguments("--disabled-dev-shm-usage");
+        driver = new ChromeDriver(options);
+
+
         // Maximize the browser
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
