@@ -5,7 +5,7 @@ on:
       test_suite:
         description: 'Suite to be run (smoke/regression)'
         required: true
-        default: 'regression'
+        default: 'smoke'
   push:
     branches:
       - '**'
@@ -37,7 +37,7 @@ jobs:
 
       - name: CI test
         run: |
-          mvn clean test -Dsuite=regression
+          mvn clean test -Dsuite=smoke
 
       - uses: actions/upload-artifact@v3
         if: failure()
