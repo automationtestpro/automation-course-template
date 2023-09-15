@@ -7,4 +7,5 @@
             <class name="comtest.LoginTest" />
         </classes>
     </test>
+
 </suite> <!-- Suite -->
