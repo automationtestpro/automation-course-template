@@ -1,4 +1,4 @@
-package com;
+package comtest;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

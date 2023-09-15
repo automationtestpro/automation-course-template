@@ -1,4 +1,4 @@
-package com;
+package comtest;
 
 import com.base.HomePage;
 import com.base.LoginPage;
