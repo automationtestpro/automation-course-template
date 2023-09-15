@@ -123,7 +123,7 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
           <!--  <version>${webdrivermanager.version}</version> -->
-			<version>5.2.1</version>
+			<version>5.5.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
