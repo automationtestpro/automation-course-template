@@ -34,5 +34,9 @@ public class HomeWorkTest extends BasicTest {
     public void testGoogle() {
         System.out.println("Minh Vo");
     }
+    @Test
+    public void Tc3_testGoogleaffd() {
+        System.out.println("Minh Vo");
+    }
 
 }
