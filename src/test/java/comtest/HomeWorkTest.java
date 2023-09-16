@@ -30,5 +30,9 @@ public class HomeWorkTest extends BasicTest {
         Assert.assertEquals(homePage.getUserNameText(), "minhvip4398@gmailcom");
 
     }
+    @Test
+    public void testGoogle() {
+        System.out.println("Minh Vo");
+    }
 
 }

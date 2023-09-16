@@ -37,7 +37,7 @@ jobs:
 
       - name: CI test
         run: |
-          mvn clean test -Dsuite=smoke
+          mvn clean test -Dsuite=${{ github.event.inputs.test_suite }}
 
       - uses: actions/upload-artifact@v3
         if: failure()

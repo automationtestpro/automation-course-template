@@ -25,6 +25,7 @@ public abstract class BasicTest {
         options.addArguments("--no-sanbox");
         options.addArguments("--disabled-dev-shm-usage");
         driver = new ChromeDriver(options);
+      //  driver = new ChromeDriver();
 
 
         // Maximize the browser
