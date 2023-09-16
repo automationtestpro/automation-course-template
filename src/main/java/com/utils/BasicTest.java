@@ -19,13 +19,13 @@ public abstract class BasicTest {
     public void preCondition() {
         //  Chromedriver path
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments ("window-size=1920,1080");
-        options.addArguments("--no-sanbox");
-        options.addArguments("--disabled-dev-shm-usage");
-        driver = new ChromeDriver(options);
-      //  driver = new ChromeDriver();
+  //      ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless");
+//        options.addArguments ("window-size=1920,1080");
+//        options.addArguments("--no-sanbox");
+//        options.addArguments("--disabled-dev-shm-usage");
+//        driver = new ChromeDriver(options);
+       driver = new ChromeDriver();
 
 
         // Maximize the browser

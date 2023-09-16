@@ -12,6 +12,8 @@ public class LoginPage extends BasePage{
     private By passwordTxt = By.xpath("//input[@name='PasswordDN']");
     private By dangNhapBtn = By.xpath("//button[@type='submit'][contains(text(),'Đăng nhập')]");
     private By userNameAfterLogin = By.xpath("//span[@class='username-header']");
+    private By headingText = By.xpath("//h1[text()='Trải nghiệm kỳ nghỉ tuyệt vời']");
+
 
 
     public LoginPage(WebDriver driver) {
@@ -43,8 +45,9 @@ public class LoginPage extends BasePage{
         return   getElementValidationMessage(element);
     }
 
-    public String getUserNameText() {
-        return findElementByLocator(userNameAfterLogin).getText();
+    public String getHeadingText() {
+        return findElementByLocator(headingText).getText();
     }
+
 
 }

@@ -31,12 +31,13 @@ public class HomeWorkTest extends BasicTest {
 
     }
     @Test
-    public void testGoogle() {
-        System.out.println("Minh Vo");
+    public void verifyHeader() {
+        String url = "https://www.ivivu.com/";
+        loginPage = new LoginPage(driver);
+        loginPage.openUrl(url);
+        Assert.assertEquals(loginPage.getHeadingText(),"Trải nghiệm kỳ nghỉ tuyệt vời");
+
     }
-    @Test
-    public void Tc3_testGoogleaffd() {
-        System.out.println("Minh Vo");
-    }
+
 
 }
