@@ -29,11 +29,13 @@ public abstract class BasicTest {
         // Maximize the browser
         driver.manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        logger.info("Broswer open successfully");
     }
 
     @AfterMethod
     public void postCondition(){
         // Quit the Browser
         driver.quit();
+        logger.info("Broswer close successfully");
     }
 }

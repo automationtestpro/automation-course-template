@@ -5,6 +5,8 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.LoginTest" />
+            <class name="com.Bai16" />
+             <class name="com.Bai17" />
         </classes>
     </test>
 </suite> <!-- Suite -->
