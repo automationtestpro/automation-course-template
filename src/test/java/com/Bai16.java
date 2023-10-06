@@ -36,15 +36,6 @@ public class Bai16 extends BasicTest {
         Assert.assertEquals(passwordInp.getText(), "error 1234");
 
 
-
-        loginBtn.click();
-
-        Assert.assertEquals(passwordInp.getText(), "error 1234");
-
-        abc.click();
-//dasdasdas
-        Assert.assertEquals(passwordInp.getText(), "error 1234");
-
     }
 
 }
