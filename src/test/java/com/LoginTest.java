@@ -36,7 +36,6 @@ public class LoginTest extends BasicTest {
         submitButton = driver.findElement(By.xpath("//button[@name='register']"));
         submitButton.click();
 
-
         errorText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@role='alert']//li")));
         String invalidEmailErrorText = errorText.getText();
         Assert.assertEquals(invalidEmailErrorText,expectEmailError);
