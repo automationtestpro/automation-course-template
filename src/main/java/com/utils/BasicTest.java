@@ -22,13 +22,11 @@ public abstract class BasicTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
 
     @AfterMethod
     public void postCondition(){
-        // Quit the Browser
         driver.quit();
     }
 }
