@@ -18,11 +18,14 @@ public abstract class BasicTest {
 
     @BeforeMethod
     public void preCondition() {
-
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("window-size=1920,1080");
+        options.addArguments("--no-sanbox");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver = new ChromeDriver(options);
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
 
