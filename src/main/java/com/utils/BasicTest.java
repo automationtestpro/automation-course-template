@@ -22,7 +22,7 @@ public abstract class BasicTest {
         options.addArguments("--headless");
         options.addArguments("window-size=1920,1080");
         options.addArguments("--no-sanbox");
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
 //        driver.manage().window().maximize();
 //        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
