@@ -14,7 +14,7 @@ public class LogTestPOM  extends BasicTest {
 
     @Test()
     public void loginTest() throws Exception {
-
+//test
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
         loginPage = new LoginPage(driver);
         loginPage.openUrl(url);
