@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public abstract class BasicTest {
-    
+    //comment
     public static final Logger logger = LogManager.getLogger();
     protected static WebDriver driver;
 
