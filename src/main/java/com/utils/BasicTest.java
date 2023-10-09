@@ -25,6 +25,7 @@ public abstract class BasicTest {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
+
     @AfterMethod
     public void postCondition(){
         // Quit the Browser
