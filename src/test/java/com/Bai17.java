@@ -43,7 +43,8 @@ public class Bai17 {
         driver.navigate().back();
         Utils.hardWait(5000);
         WebElement tk=driver.findElement(By.xpath("//*[@id='main']/section[2]/div/div/div/div/div/div/header/h1"));
-        Assert.assertFalse(tk.isDisplayed());
+
+        Assert.assertTrue(tk.isDisplayed());
         // Quit the Browser
         driver.quit();
     }
