@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AbstractTest {
-    protected WebDriver driver;
+    public static  WebDriver driver;
     public WebDriverWait webDriverWait ;
 
     public AbstractTest(WebDriver driver) {
@@ -40,6 +40,12 @@ public class AbstractTest {
         WebElement element = findElementByLocator(locatorType);
         element.clear();
         element.sendKeys(textValue);
+    }
+
+    public  void clickButtonMultipleTimes(By locator, int n) {
+        for (int i = 0; i < n; i++) {
+            clickElement(locator);
+        }
     }
 
     public String getElementValidationMessage(By locator ) {
