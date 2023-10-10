@@ -7,10 +7,12 @@ import org.openqa.selenium.WebElement;
 public class BookingHomePage extends AbstractTest {
 
     private By optionsDropdown = By.xpath("//div[@class='col-xs-12 v_field']");
-    private By roomPlusButton = By.xpath("//div[@class='quantity ng-binding' and text()=\"1\"]/following::button[2]");
-    private By adultPersonPlusButton = By.xpath("//div[@class='quantity ng-binding' and text()=\"2\"]/following::button[2]");
-    private By roomQuantity = By.xpath("//div[@class='quantity ng-binding' and text()=\"1\"]");
-    private By adultPersonQuantity = By.xpath("//div[@class='quantity ng-binding' and text()=\"2\"]");
+    private By roomPlusButton = By.xpath("(//div[@class=\"col-xs-6 no-padding text-right\"]//div[1]//button[2])[1]");
+    private By adultPersonPlusButton = By.xpath("(//div[@class=\"col-xs-6 no-padding text-right\"]//div[1]//button[2])[2]");
+    private By childrenPlusButton = By.xpath("(//div[@class=\"col-xs-6 no-padding text-right\"]//div[1]//button[2])[3]");
+    private By roomQuantity = By.xpath("(//div[@class='quantity ng-binding'])[1]");
+    private By adultPersonQuantity = By.xpath("(//div[@class='quantity ng-binding'])[2]");
+    private By childrenQuantity = By.xpath("(//div[@class='quantity ng-binding'])[3]");
 
 
 
@@ -31,11 +33,18 @@ public class BookingHomePage extends AbstractTest {
     {
         clickButtonMultipleTimes(adultPersonPlusButton,n);
     }
+    public void clickChildrenMultiTimes(int n)
+    {
+        clickButtonMultipleTimes(childrenPlusButton,n);
+    }
 
     public String getRoomQuantity() {
         return getElementValidationMessage(roomQuantity);
     }
     public String getAdultQuantity() {
         return getElementValidationMessage(adultPersonQuantity);
+    }
+    public String getChildrenQuantity() {
+        return getElementValidationMessage(childrenQuantity);
     }
 }
