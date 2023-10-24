@@ -1,6 +1,7 @@
 package com;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 
 import com.pages.LoginPage;
 import com.utils.BasicTest;
+import com.utils.DriverManager;
 import com.utils.Utils;
 
 public class LoginTest extends BasicTest {
@@ -16,10 +18,15 @@ public class LoginTest extends BasicTest {
 
     @Test()
     public void loginTest() throws Exception {
+
+        WebDriver driver = DriverManager.getDriver();
+
         // Launch website
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
+
+        // read info 
 
         // WebElement email= driver.findElement(By.xpath("//[@id='username']"));
         // email.sendKeys("duykhanhrc@gmail.com");

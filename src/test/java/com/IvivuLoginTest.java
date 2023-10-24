@@ -1,6 +1,7 @@
 package com;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 import com.pages.IvivuLoginPage;
 import com.pages.LoginPage;
 import com.utils.BasicTest;
+import com.utils.DriverManager;
 import com.utils.Utils;
 
 public class IvivuLoginTest extends BasicTest {
@@ -19,6 +21,7 @@ public class IvivuLoginTest extends BasicTest {
     public void loginTest() throws Exception {
         // Launch website
         String url = "https://www.ivivu.com/";
+        WebDriver driver = DriverManager.getDriver();
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
