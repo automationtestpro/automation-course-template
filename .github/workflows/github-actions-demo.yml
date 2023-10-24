@@ -1,8 +1,14 @@
 name: E2E Test
 on:
-  push:
-    branches:
-      - '**'
+    workflow_dispatch:
+        inputs:
+          test_suite:
+            description: 'Suite to be run (smoke/regression)'
+            required: true
+            default: 'TestNG'
+    push:
+        branches:
+        - '**'
 
 jobs:
   test-ci:
@@ -31,7 +37,7 @@ jobs:
 
       - name: CI test
         run: |
-          mvn clean test -Dtest=com.LoginTest
+            mvn clean test -Dsuite=${{ github.event.inputs.test_suite }}
 
       - uses: actions/upload-artifact@v3
         if: failure()

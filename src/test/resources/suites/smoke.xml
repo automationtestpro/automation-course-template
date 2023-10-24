@@ -5,7 +5,6 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.IvivuLoginTest" />
-            <class name="com.LoginTest" />
         </classes>
     </test>
 </suite> <!-- Suite -->
