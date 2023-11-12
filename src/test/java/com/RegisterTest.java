@@ -13,7 +13,7 @@ import com.utils.Utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LoginTest extends BasicTest {
+public class RegisterTest extends BasicTest {
 
 
     @Test()
