@@ -10,7 +10,7 @@ public class Utils {
     }
 
     public static void hardWait(){
-        hardWait(3000);
+        hardWait(1000);
     }
 
 }
