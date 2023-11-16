@@ -43,9 +43,11 @@ public class bai16 extends BasicTest {
         try {
             WebElement alertElement = driver.findElement(By.xpath("//*[@role='alert']//*[text()='"+ searchText+"'] "));
             System.out.println("Element found: " + alertElement);
+            Assert.assertNotNull(alertElement, "Alert element not found");
         } catch (org.openqa.selenium.NoSuchElementException e) {
             System.err.println("Element not found");
+            Assert.fail("Alert element not found");
         }
     }
-    
+
 }
