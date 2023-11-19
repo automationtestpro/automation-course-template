@@ -6,6 +6,7 @@ import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
@@ -17,10 +18,21 @@ public class Bai19 extends BasicTest {
 
     public static final String Path_TestData = System.getProperty("user.dir") + File.separator + "src\\test\\resources\\suites\\testdata\\";
     public static final String File_TestData = "TestData.xlsx";
-    @Test()
-    public void loginTest() throws Exception {
+
+    @DataProvider(name = "loginDataProvider")
+    public static Object [][] loginDataProvider(){
+        return new Object[][] {
+            {"UTS_User_01",0, 2, 2, 3},
+            {"UTS_User_02",0, 3, 2, 3},
+            {"UTS_User_03",0, 4, 2, 3},
+            {"UTS_User_04",0, 5, 2, 3},
+        };
+    }
+
+    @Test(dataProvider = "loginDataProvider")
+    public void loginTest(String tcID, int sheetIndex,int rowNum, int usernameCol, int passwordCol) throws Exception {
         // Launch website
-        String tcID = "UTS_User_02";
+        //String tcID = "UTS_User_02";
 
         ExcelUtils excelUtils = new ExcelUtils(Path_TestData, File_TestData);
 
@@ -35,8 +47,8 @@ public class Bai19 extends BasicTest {
         WebElement password = driver.findElement(By.id("password"));
         WebElement loginbutton = driver.findElement(By.xpath("//button[contains(text(),'Log in')]"));
 
-        String usernameExcel = excelUtils.getData(0, 2, 2);
-        String passwordExcel = excelUtils.getData(0, 2, 3);
+        String usernameExcel = excelUtils.getData(0, rowNum, usernameCol);
+        String passwordExcel = excelUtils.getData(0,rowNum, passwordCol);
         username.sendKeys(usernameExcel);
         password.sendKeys((passwordExcel));
         loginbutton.click();
