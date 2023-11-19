@@ -26,7 +26,8 @@ public class Bai16 extends BasicTest {
         WebElement errorElement = driver.findElement(By.xpath("//*[text()=' Vui lòng cung cấp địa chỉ email hợp lệ.\t\t']"));
         String errorMessage = errorElement.getText();
         System.out.println(errorMessage);
-        assert errorMessage.contains("Vui lòng cung cấp địa chỉ email hợp lệ");
+        //assert errorMessage.contains("Vui lòng cung cấp địa chỉ email hợp lệ");
+        Assert.assertEquals(errorMessage, "Vui lòng cung cấp địa chỉ email hợp lệ");
         
         WebElement email2 = driver.findElement(By.xpath("//input[@id='reg_email']"));
         email2.sendKeys("123@456");
@@ -35,7 +36,8 @@ public class Bai16 extends BasicTest {
         WebElement errorElement3 = driver.findElement(By.xpath("//*[text()=' Vui lòng cung cấp địa chỉ email hợp lệ.\t\t']"));
         String errorMessage3 = errorElement3.getText();
         System.out.println(errorMessage3);
-        assert errorMessage3.contains("Vui lòng cung cấp địa chỉ email hợp lệ");
+        //assert errorMessage3.contains("Vui lòng cung cấp địa chỉ email hợp lệ");
+        Assert.assertEquals(errorMessage, "Vui lòng cung cấp địa chỉ email hợp lệ");
 
         WebElement email3 = driver.findElement(By.xpath("//input[@id='reg_email']"));
         email3.clear();
@@ -45,7 +47,8 @@ public class Bai16 extends BasicTest {
         WebElement errorElement2 = driver.findElement(By.xpath("//*[text()=' Vui lòng nhập mật khẩu tài khoản.\t\t']"));
         String errorMessage2 = errorElement2.getText();
         System.out.println(errorMessage2);
-        assert errorMessage2.contains(" Vui lòng nhập mật khẩu tài khoản.");
+        //assert errorMessage2.contains(" Vui lòng nhập mật khẩu tài khoản.");
+        Assert.assertEquals(errorMessage, " Vui lòng nhập mật khẩu tài khoản.");
         // password.sendKeys("");
         // loginButton.click();
     }
