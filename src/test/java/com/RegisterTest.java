@@ -1,6 +1,7 @@
 package com;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -9,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.utils.BasicTest;
+import com.utils.DriverManager;
 import com.utils.Utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -18,8 +20,12 @@ public class RegisterTest extends BasicTest {
 
     @Test()
     public void loginTest()  {
+
+        WebDriver driver = DriverManager.getDriver();
+
         // Launch website
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
+        
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 

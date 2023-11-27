@@ -5,11 +5,14 @@ import java.io.File;
 // import java.time.Duration;
 // import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.utils.BasicTest;
+import com.utils.DriverManager;
 import com.utils.ExcelUtils;
 import com.utils.Utils;
 
@@ -27,6 +30,8 @@ public class Bai16 extends BasicTest {
         String tcID = "UTS_User_01";
         ExcelUtils excelUtils = new ExcelUtils(Path_TestData, File_TestData);
 
+        WebDriver driver = DriverManager.getDriver();
+
 
         // Launch website
 
@@ -37,8 +42,15 @@ public class Bai16 extends BasicTest {
 
         //WebElement email = driver.findElement(By.id("reg_email"));
         //WebElement password = driver.findElement(By.id("reg_password"));
-        WebElement registerButton = driver.findElement(By.xpath("//button[contains(text(),'Đăng ký')]"));
-        registerButton.click();
+        
+        // WebElement registerButton = driver.findElement(By.xpath("//button[contains(text(),'Đăng ký')]"));
+        // registerButton.click();
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(),'Đăng ký')]")))
+            .click();
+        
+        
+        
         WebElement errorElement = driver.findElement(By.xpath("//*[text()=' Vui lòng cung cấp địa chỉ email hợp lệ.\t\t']"));
         String errorMessage = errorElement.getText();
         System.out.println(errorMessage);

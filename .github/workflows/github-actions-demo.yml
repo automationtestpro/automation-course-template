@@ -1,0 +1,52 @@
+name: Github actions demo
+on:
+#   workflow_dispatch:
+#     inputs:
+#       test_suite:
+#         description: 'Suite to be run (smoke/regression)'
+#         required: true
+#         default: 'smoke'
+  push:
+    branches:
+      - '**'
+
+jobs:
+  explore-github-actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Trigger Event
+        run: echo "Job was automatically triggered by a ${{ github.event_name }} event."
+  test-ci:
+    name: Test CI
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    permissions:
+      contents: "read"
+      id-token: "write"
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Set up Maven
+        run: sudo apt-get install -y maven
+
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get --only-upgrade install google-chrome-stable
+
+      - name: CI test
+        run: |
+          mvn clean test -Dtest=com.LoginTest
+
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: testng-report-${{ github.run_number }}
+          path: |
+            target/surefire-reports/emailable-report.html

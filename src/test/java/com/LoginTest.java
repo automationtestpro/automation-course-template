@@ -1,6 +1,7 @@
 package com;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -10,6 +11,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.utils.BasicTest;
+import com.utils.DriverManager;
 import com.utils.Utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -19,6 +21,8 @@ public class LoginTest extends BasicTest {
 
     @Test(dataProvider = "loginAccounts")
     public void loginTest(String uname, String password)  {
+        WebDriver driver = DriverManager.getDriver();
+
         // Launch website
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
         driver.get(url);
