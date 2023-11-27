@@ -24,7 +24,7 @@ public class LoginTest extends BasicTest {
         WebDriver driver = DriverManager.getDriver();
 
         // Launch website
-        String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
+        String url = "https://bantheme.xyz/hathanhauto/tai-khoan1/";
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
