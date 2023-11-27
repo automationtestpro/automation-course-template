@@ -1,11 +1,11 @@
 name: Github actions demo
 on:
-#   workflow_dispatch:
-#     inputs:
-#       test_suite:
-#         description: 'Suite to be run (smoke/regression)'
-#         required: true
-#         default: 'smoke'
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Suite to be run (smoke/regression)'
+        required: true
+        default: 'smoke'
   push:
     branches:
       - '**'
