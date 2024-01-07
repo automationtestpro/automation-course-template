@@ -36,7 +36,6 @@ public class Bai19 extends BasicTest {
         } catch (NoSuchElementException e) {
             System.out.println("The 'Logged in' status could not be found.");
         }
-        driver.quit();
     }
 
     @DataProvider(name="testdata")
