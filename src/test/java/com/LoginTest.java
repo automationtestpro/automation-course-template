@@ -14,6 +14,7 @@ public class LoginTest extends BasicTest {
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
+        System.out.println("abc");
     }
 
 }
