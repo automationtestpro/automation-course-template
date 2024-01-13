@@ -42,6 +42,9 @@ public class LoginTest extends BasicTest {
         WebElement errorMessage3 = driver.findElement(By.xpath("//div[@id='main']//li[1]"));
         Assert.assertEquals(errorMessage3.getText(),"Lỗi: Vui lòng nhập mật khẩu tài khoản.");
 
+        //QUESTION: khong biet sao mỗi lần e lại phải khai báo lại biến email, buttonb, error nếu không chạy sẽ báo lỗi không tìm thấy phần tủ.tủ
+       // theo lí thuyết là không cần khai báo lại nữa nhưng không khai báo thêm thì nó sẽ bị lỗi ý
+
 
     }
 
