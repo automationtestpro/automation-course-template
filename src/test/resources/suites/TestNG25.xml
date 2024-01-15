@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="tests" name="DemoSuite">
+    <test thread-count="1" parallel="classes" name="DemoTest1">
+        <classes>
+            <class name="com.Bai21" />
+        </classes>
+    </test>
+    <test thread-count="1" parallel="classes" name="DemoTest2">
+        <classes>
+            <class name="com.Bai22" />
+        </classes>
+    </test>
+</suite> <!-- Suite -->
