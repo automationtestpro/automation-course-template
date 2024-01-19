@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 
 import com.utils.BasicTest;
 
-public class LoginTest extends BasicTest {
+public class Bai18 extends BasicTest {
 
 
     @Test()
-    public void loginTest() throws Exception {
+    public void bai18() throws Exception {
         // Launch website
         String url = "https://automationtestpro.com/";
         driver.get(url);
