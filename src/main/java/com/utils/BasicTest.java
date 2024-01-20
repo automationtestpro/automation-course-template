@@ -29,8 +29,13 @@ public abstract class BasicTest {
 
         if (Constants.BROWSER_TYPE.equalsIgnoreCase("chrome")) {
             // Chrome
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--headless");
+            options.addArguments("window-size=1920,1080");
+            options.addArguments("--no-sanbox");
+
             WebDriverManager.chromedriver().setup();
-            WebDriver driver = new ChromeDriver();
+            WebDriver driver = new ChromeDriver(options);
             // set to thread local
             DriverManager.setDriver(driver);
         } else if (Constants.BROWSER_TYPE.equalsIgnoreCase("firefox")) {    

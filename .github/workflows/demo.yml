@@ -1,6 +1,15 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
+on:
+  workflow_dispatch:
+    # inputs:
+    #   test_suite:
+    #     description: 'Suite to be run (smoke/regression)'
+    #     required: true
+    #     default: 'smoke'
+  push:
+    branches:
+      - '**'
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
