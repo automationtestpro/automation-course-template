@@ -2,14 +2,14 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   workflow_dispatch:
-    # inputs:
-    #   test_suite:
-    #     description: 'Suite to be run (smoke/regression)'
-    #     required: true
-    #     default: 'smoke'
-  push:
-    branches:
-      - '**'
+    inputs:
+      test_data:
+        description: 'Tc can run'
+        required: true
+        default: 'com.Bai21'
+  # push:
+  #   branches:
+  #     - '**'
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -32,4 +32,4 @@ jobs:
   
         - name: CI test
           run: |
-            mvn clean test -Dtest=com.Bai21
+            mvn clean test -Dtest=${{ github.event.inputs.test_data }}
