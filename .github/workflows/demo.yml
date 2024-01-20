@@ -33,3 +33,10 @@ jobs:
         - name: CI test
           run: |
             mvn clean test -Dtest=${{ github.event.inputs.test_data }}
+
+        - uses: actions/upload-artifact@v3
+          # if: failure()
+          with:
+            name: testng-report-${{ github.run_number }}
+            path: |
+              target/surefire-reports/emailable-report.html
