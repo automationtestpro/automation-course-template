@@ -7,15 +7,13 @@ import org.openqa.selenium.safari.SafariDriver.WindowType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 import com.utils.BasicTest;
 
 public class Bai18 extends BasicTest {
 
-
     @Test()
     public void bai18() throws Exception {
-        // Log in 
+        // Log in
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
         driver.get(url);
         WebElement email = driver.findElement(By.xpath("//input[@id='username']"));
@@ -37,21 +35,19 @@ public class Bai18 extends BasicTest {
         }
         String url1 = "https://bantheme.xyz/hathanhauto";
         driver.get(url1);
+        // Get the current tab
         String secondTabHandle = driver.getWindowHandle();
-
 
         // Switch back to the first tab using the saved window handle
         driver.switchTo().window(firstTabHandle);
-        //close the previous tab
+        // close the previous tab
         driver.close();
-        
 
         // Switch to new tab and log in
         driver.switchTo().window(secondTabHandle);
         WebElement loginbtn = driver.findElement(By.xpath("//a[@class='pos-login']"));
         loginbtn.click();
         Assert.assertEquals(driver.getCurrentUrl(), "https://bantheme.xyz/hathanhauto/tai-khoan/");
-
 
     }
 
