@@ -30,9 +30,12 @@ public class Bai18 extends BasicTest {
         ((JavascriptExecutor) driver).executeScript("window.open();");
 
         // Switch new tab
-        for (String handle : driver.getWindowHandles()) {
-            driver.switchTo().window(handle);
-        }
+        // for (String handle : driver.getWindowHandles()) {
+        //     driver.switchTo().window(handle);
+        // }
+        String lastTab = driver.getWindowHandles().stream().reduce((first, second) -> second).orElse(null);
+        driver.switchTo().window(lastTab);
+
         String url1 = "https://bantheme.xyz/hathanhauto";
         driver.get(url1);
         // Get the current tab
