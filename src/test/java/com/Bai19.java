@@ -25,13 +25,12 @@ public class Bai19 extends BasicTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
         // Input user name & password
-        WebElement username = driver.findElement(By.xpath("//input[@id='username']"));
-        WebElement passWord = driver.findElement(By.xpath("//input[@id='password']"));
-        username.sendKeys(uname);
-        passWord.sendKeys(pword);
+        driver.findElement(By.xpath("//input[@id='username']")).sendKeys(uname);
+        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pword);
+
         WebElement loginBtn = driver.findElement(By.xpath("//button[normalize-space()='Log in']"));
         loginBtn.click();
-
+        
         Utils.hardWait(3000);
 
     }
