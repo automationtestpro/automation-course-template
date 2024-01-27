@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import com.applitools.eyes.selenium.SeleniumEyes.WebDriverAction;
 import com.utils.BasicTest;
+import com.utils.Utils;
 
 public class Bai21 extends BasicTest {
     @Test()
@@ -21,14 +22,22 @@ public class Bai21 extends BasicTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
-       //Find element
+       //Find element and right click
        WebDriverWait wait = new WebDriverWait(driver, 10);
        Actions action = new Actions(driver);
-
        WebElement media = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class=\"media\"]")));
        action.moveToElement(media).contextClick().perform();
-
        Assert.assertTrue(driver.findElement(By.xpath("//*[@class=\"zm-contextmenu song-menu\"]")).isDisplayed());
+       // Continue hover to "Share" option
+       WebElement shareBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Chia sẻ')]")));
+       action.moveToElement(shareBtn).perform();
+       Assert.assertTrue(
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+            (By.xpath("//*[@class=\"menu share-content submenu-content\"]"))
+            )
+            ).isDisplayed());
+
+       
 
 
     }
