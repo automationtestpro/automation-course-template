@@ -20,7 +20,7 @@ public abstract class BasicTest {
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-    public void preCondition(String BaseURL) {
+    public void preCondition() {
         // Chromedriver path
         // driverPath = "src/main/resources/WebDrivers/chromedriver.exe";
         // ChromeOptions options = new ChromeOptions();
@@ -31,7 +31,7 @@ public abstract class BasicTest {
         // Maximize the browser
         driver.manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get(BaseURL);
+        //driver.get(BaseURL);
     }
 
     @DataProvider(name = "testLogin")
