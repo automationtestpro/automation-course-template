@@ -20,9 +20,9 @@ public class Bai20 extends BasicTest {
         //WebElement btnLogin = driver.findElement(By.xpath("//button[contains(text(), 'Log in ')]"));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"username\"]"))).clear();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"username\"]"))).sendKeys(username);
+        driver.findElement(By.xpath("//*[@id=\"username\"]")).sendKeys(username);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password"))).clear();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("password"))).sendKeys(pwd);
+        driver.findElement(By.id("password")).sendKeys(pwd);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[contains(text(), 'Log in ')]"))).click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
