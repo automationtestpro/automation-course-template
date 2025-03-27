@@ -11,11 +11,11 @@ on:
       - '**'
 
 jobs:
-  explore-github-actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Display Trigger Event
-        run: echo "Job was automatically triggered by a ${{ github.event_name }} event."
+#   explore-github-actions:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Display Trigger Event
+#         run: echo "Job was automatically triggered by a ${{ github.event_name }} event."
   test-ci:
     name: Test CI
     timeout-minutes: 30
@@ -44,9 +44,9 @@ jobs:
         run: |
           mvn clean test -Dtest=com.LoginTest
 
-      - uses: actions/upload-artifact@v3
-        if: failure()
-        with:
-          name: testng-report-${{ github.run_number }}
-          path: |
-            target/surefire-reports/emailable-report.html
+    #   - uses: actions/upload-artifact@v3
+    #     if: failure()
+    #     with:
+    #       name: testng-report-${{ github.run_number }}
+    #       path: |
+    #         target/surefire-reports/emailable-report.html
