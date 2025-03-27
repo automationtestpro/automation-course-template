@@ -13,6 +13,9 @@ on:
 jobs:
   explore-github-actions:
     runs-on: ubuntu-latest
+    steps:
+      - name: Display Trigger Event
+        run: echo "Job was automatically triggered by a ${{ github.event_name }} event."
   test-ci:
     name: Test CI
     timeout-minutes: 30
