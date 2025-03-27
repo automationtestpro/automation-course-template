@@ -1,14 +1,14 @@
 name: Github actions demo
 on:
-#   workflow_dispatch:
-#     inputs:
-#       test_suite:
-#         description: 'Suite to be run (smoke/regression)'
-#         required: true
-#         default: 'smoke'
-  push:
-    branches:
-      - '**'
+  workflow_dispatch:
+    inputs:
+      test_script:
+        description: 'Script to be run'
+        required: true
+        default: 'com.LoginTest'
+#   push:
+#     branches:
+#       - '**'
 
 jobs:
 #   explore-github-actions:
@@ -42,7 +42,7 @@ jobs:
 
       - name: CI test
         run: |
-          mvn clean test -Dtest=com.LoginTest
+          mvn clean test -Dtest=${{ github.event_name.inputs.test_script }}
 
       - uses: actions/upload-artifact@v4
         # if: failure()
