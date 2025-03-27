@@ -44,7 +44,7 @@ jobs:
         run: |
           mvn clean test -Dtest=com.LoginTest
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3.1.2
         # if: failure()
         with:
           name: testng-report-${{ github.run_number }}
