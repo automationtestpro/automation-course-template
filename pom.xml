@@ -62,7 +62,7 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
+                <!-- <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -70,7 +70,7 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/suites/${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                </configuration>
+                </configuration> -->
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
@@ -191,10 +191,21 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter</artifactId>
-         <version>5.8.2</version>
-         <scope>test</scope>
-     </dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.21.1</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.21.1</version>
+        </dependency>
     </dependencies>
 </project>
