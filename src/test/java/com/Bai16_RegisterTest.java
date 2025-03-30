@@ -8,11 +8,11 @@ import org.testng.annotations.Test;
 import com.utils.BasicTest;
 import com.utils.Utils;
 
-public class LoginTest extends BasicTest {
+public class Bai16_RegisterTest extends BasicTest {
 
 
     @Test()
-    public void loginTest() throws Exception {
+    public void registerTest() throws Exception {
         // Launch website
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
         driver.get(url);
