@@ -11,7 +11,7 @@ public class LoginTest extends BasicTest {
 
 
     @Test()
-    public void loginTest() throws Exception {
+    public void loginExampleTest() throws Exception {
         // Launch website
         String url = "https://the-internet.herokuapp.com/login";
         driver.get(url);
