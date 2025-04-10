@@ -2,6 +2,7 @@ package com;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,29 +19,41 @@ public class LoginTest extends BasicTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
-        Utils.hardWait(); // cho 3s
+        // Utils.hardWait(); // cho 3s
 
         // enter username
-        WebElement username = driver.findElement(By.xpath("//input[@id='username']"));
-        username.sendKeys("test@gmail.com");
 
-        Utils.hardWait(); // cho 3s
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='username']"))).sendKeys("test@gmail.com");
+
+        // WebElement username = driver.findElement(By.xpath("//input[@id='username']"));
+        // username.sendKeys("test@gmail.com");
+
+        // Utils.hardWait(); // cho 3s
 
         // enter password
-        WebElement password = driver.findElement(By.xpath("//input[@id='password']"));
-        password.sendKeys("testtest");
 
-        Utils.hardWait(); // cho 3s
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='password']"))).sendKeys("testtest");
+
+        // WebElement password = driver.findElement(By.xpath("//input[@id='password']"));
+        // password.sendKeys("testtest");
+
+        // Utils.hardWait(); // cho 3s
 
         // click login button
-        WebElement loginButton = driver.findElement(By.xpath("//button[@name='login']"));
-        loginButton.click();
 
-        Utils.hardWait(); // cho 3s
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@name='login']"))).click();
+
+        // WebElement loginButton = driver.findElement(By.xpath("//button[@name='login']"));
+        // loginButton.click();
+
+        // Utils.hardWait(); // cho 3s
 
         // verify login success
-        WebElement errorMessage = driver.findElement(By.xpath("//ul[@class='woocommerce-error']"));
-        Assert.assertEquals(errorMessage.getText(), "");
+
+        String message = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='woocommerce-error']"))).getText();
+
+        // WebElement errorMessage = driver.findElement(By.xpath("//ul[@class='woocommerce-error']"));
+        Assert.assertEquals(message, "");
     }
 
 }
