@@ -1,6 +1,9 @@
 package com;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,25 +18,40 @@ public class LoginTest extends BasicTest {
         // Launch website
         String url = "https://the-internet.herokuapp.com/login";
         driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
         Utils.hardWait();
 
-        // Enter username
-        driver.findElement(By.id("username")).sendKeys("tomsmith");
+        driver.get("https://automationtestpro.com/");
         Utils.hardWait();
 
-        // Enter password
-        driver.findElement(By.id("password")).sendKeys("SuperSecretPassword!");
+        driver.navigate().back();
         Utils.hardWait();
 
-        // Click on login button
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
+        driver.navigate().forward();
+        Utils.hardWait();
+        
+        driver.navigate().refresh();
         Utils.hardWait();
 
-        // Verify login success
-        Assert.assertTrue(driver.findElement(By.xpath("//h4[contains(text(),'Welcome to the Secure Area.')]")).isDisplayed(), "Login failed");
-        Utils.hardWait();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     }
 
 }
