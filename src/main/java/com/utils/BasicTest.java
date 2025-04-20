@@ -14,26 +14,19 @@ import java.util.concurrent.TimeUnit;
 public abstract class BasicTest {
     
     public static final Logger logger = LogManager.getLogger();
-    protected static WebDriver driver;
-    // private String driverPath;
+    protected static ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
     @BeforeMethod
     public void preCondition() {
-        // Chromedriver path
-        // driverPath = "src/main/resources/WebDrivers/chromedriver.exe";
-        // ChromeOptions options = new ChromeOptions();
-        // System.setProperty("webdriver.chrome.driver", driverPath);
-        // driver = new ChromeDriver(options);
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        // Maximize the browser
-        driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        WebDriver driver = new ChromeDriver();
+        threadLocalDriver.set(driver);
     }
 
     @AfterMethod
     public void postCondition(){
         // Quit the Browser
-        driver.quit();
+        threadLocalDriver.get().quit();
+        threadLocalDriver.remove();
     }
 }

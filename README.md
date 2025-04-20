@@ -4,7 +4,7 @@
 
 ### Run 1 script
 ```
-mvn clean test -Dtest=com.LoginTest
+mvn clean test -Dtest=com.ExampleTest
 ```
 
 ### Run many scripts
