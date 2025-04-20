@@ -26,13 +26,15 @@ public class LoginTest extends BasicTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
         // enter username
-        loginPage.enterUsername("test@gmail.com");
+        loginPage.enterUsername("test@gmail.com")
+                 .enterPassword("testtest")
+                 .clickLoginButton();
 
         // enter password
-        loginPage.enterPassword("testtest");
+        // loginPage.enterPassword("testtest");
 
         // click login button
-        loginPage.clickLoginButton();
+        // loginPage.clickLoginButton();
 
         // verify login success
         String message = loginPage.getErrorMessage();

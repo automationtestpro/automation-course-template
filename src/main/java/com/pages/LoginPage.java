@@ -2,6 +2,8 @@ package com.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
     
@@ -15,17 +17,26 @@ public class LoginPage extends BasePage {
     private By loginButton = By.xpath("//button[@name='login']");
     private By errorMessage = By.xpath("//ul[@class='woocommerce-error']");
 
+
+    // @FindBy(xpath = "//input[@id='username']")
+    // private WebElement usernameFieldElement;
+
     // Methods
-    public void enterUsername(String username) {
+    public LoginPage enterUsername(String username) {
         findElement(usernameField).sendKeys(username);
+        // usernameFieldElement.sendKeys(username);
+
+        return this;
     }
 
-    public void enterPassword(String password) {
+    public LoginPage enterPassword(String password) {
         findElement(passwordField).sendKeys(password);
+        return this;
     }
 
-    public void clickLoginButton() {
+    public LoginPage clickLoginButton() {
         findElement(loginButton).click();
+        return this;
     }
 
     public String getErrorMessage() {
