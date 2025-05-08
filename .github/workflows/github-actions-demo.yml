@@ -12,11 +12,11 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v2
     
-        - name: Set up Java
+        - name: Set up JDK
           uses: actions/setup-java@v2
           with:
-            distribution: 'termurin'
-            java-version: '17'
+            distribution: 'temurin'
+            java-version: '11'
     
         - name: Setup Maven
           run: sudo apt-get -y install maven
