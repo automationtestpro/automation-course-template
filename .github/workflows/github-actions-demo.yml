@@ -1,0 +1,31 @@
+name: Test Web
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+    test-ci:
+        name: Test CI
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+    
+        - name: Set up Java
+          uses: actions/setup-java@v2
+          with:
+            distribution: 'termurin'
+            java-version: '17'
+    
+        - name: Setup Maven
+          run: sudo apt-get -y install maven
+    
+        - name: Setup Chrome
+          run: |
+            sudo apt-get update
+            sudo apt-get --only-upgrade install google-chrome-stable
+
+        - name: Test CI
+          run: |
+            mvn clean test -Dtest=com.HoverTest
