@@ -1,8 +1,11 @@
 name: Test Web
 on:
-  push:
-    branches:
-      - '*'
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Suite to be run (smoke, regression, etc.)'
+        required: true
+        default: 'smoke'
 jobs:
     test-ci:
         name: Test CI
@@ -28,4 +31,4 @@ jobs:
 
         - name: Test CI
           run: |
-            mvn clean test -Dtest=com.HoverTest
+            mvn clean test -Dsuite=${{ github.event.inputs.test_suite }}
