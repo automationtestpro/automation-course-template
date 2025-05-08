@@ -36,4 +36,8 @@ public class LoginPage {
     public String getSuccessMessage() {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText();
     }
+
+    public String getErrorMessage() {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage)).getText();
+    }
 }
