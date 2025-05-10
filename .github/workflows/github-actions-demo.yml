@@ -1,0 +1,42 @@
+
+name: Test
+on:
+  workflow_dispatch:
+    inputs:
+      test_suite:
+        description: 'Suite to be run (smoke, regression, etc.)'
+        required: true
+        default: 'smoke'
+jobs:
+    test-ci:
+        name: Test CI
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+    
+        - name: Set up JDK
+          uses: actions/setup-java@v2
+          with:
+            distribution: 'temurin'
+            java-version: '11'
+    
+        - name: Setup Maven
+          run: sudo apt-get -y install maven
+    
+        - name: Setup Chrome
+          run: |
+            sudo apt-get update
+            sudo apt-get --only-upgrade install google-chrome-stable
+
+        - name: Test CI
+          run: |
+            mvn clean test -Dsuite=${{ github.event.inputs.test_suite }}
+
+        - name: Upload test results
+          uses: actions/upload-artifact@v4
+          with:
+            name: test-results-${{ github.run_number }}
+            path: |
+                target/surefire-reports/
