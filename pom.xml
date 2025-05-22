@@ -62,15 +62,18 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
+                <!-- <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <includes>
+                        <include>**/RunCucumberTest.java</include>
+                    </includes>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/suites/${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                </configuration>
+                </configuration> -->
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
@@ -191,10 +194,28 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-         <groupId>org.junit.jupiter</groupId>
-         <artifactId>junit-jupiter</artifactId>
-         <version>5.8.2</version>
-         <scope>test</scope>
-     </dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.13.0</version>
+            <!-- <scope>test</scope> -->
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.13.0</version>
+            <!-- <scope>test</scope> -->
+        </dependency>
+        <!-- <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.13.0</version>
+            <scope>test</scope>
+        </dependency> -->
     </dependencies>
 </project>
