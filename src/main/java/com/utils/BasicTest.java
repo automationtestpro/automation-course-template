@@ -18,12 +18,8 @@ public abstract class BasicTest {
     // private String driverPath;
 
     @BeforeMethod
-    public void preCondition() {
+    public void setup() {
         // Chromedriver path
-        // driverPath = "src/main/resources/WebDrivers/chromedriver.exe";
-        // ChromeOptions options = new ChromeOptions();
-        // System.setProperty("webdriver.chrome.driver", driverPath);
-        // driver = new ChromeDriver(options);
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         // Maximize the browser
@@ -32,7 +28,7 @@ public abstract class BasicTest {
     }
 
     @AfterMethod
-    public void postCondition(){
+    public void teardown(){
         // Quit the Browser
         driver.quit();
     }
