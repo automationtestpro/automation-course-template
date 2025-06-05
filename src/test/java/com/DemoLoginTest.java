@@ -63,12 +63,12 @@ public class DemoLoginTest extends BasicTest {
 
         //Enter Email
         WebElement emailField = driver.findElement(By.xpath("//input[@id='username']"));
-        emailField.sendKeys("duykhanhrc@gmail.com");
+        emailField.sendKeys("testtest@gmail.com");
         Utils.hardWait(1000); // Wait for 1 second to simulate user typing
 
         //Enter Password
         WebElement passwordField = driver.findElement(By.xpath("//input[@id='password']"));
-        passwordField.sendKeys("123456");
+        passwordField.sendKeys("testtest");
         Utils.hardWait(1000); //
 
 
