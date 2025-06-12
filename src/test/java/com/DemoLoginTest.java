@@ -14,6 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class DemoLoginTest extends BasicTest {
@@ -28,23 +29,30 @@ public class DemoLoginTest extends BasicTest {
         driver.get(url);
 
         //Enter Email
-        WebElement emailField = driver.findElement(By.xpath("//input[@id='username']"));
-        emailField.sendKeys(username);
-        Utils.hardWait(1000); // Wait for 1 second to simulate user typing
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='username']"))).sendKeys(username);
+        // WebElement emailField = driver.findElement(By.xpath("//input[@id='username']"));
+        // emailField.sendKeys(username);
+        // Utils.hardWait(1000); // Wait for 1 second to simulate user typing
 
         //Enter Password
-        WebElement passwordField = driver.findElement(By.xpath("//input[@id='password']"));
-        passwordField.sendKeys(password);
-        Utils.hardWait(1000); //
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='password']"))).sendKeys(password);
+        // WebElement passwordField = driver.findElement(By.xpath("//input[@id='password']"));
+        // passwordField.sendKeys(password);
+        // Utils.hardWait(1000); //
 
 
         //Click Login Button
-        WebElement loginButton = driver.findElement(By.xpath("//button[@name='login']"));
-        loginButton.click();
-        Utils.hardWait(3000); //
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='login']"))).click();
+        // WebElement loginButton = driver.findElement(By.xpath("//button[@name='login']"));
+        // loginButton.click();
+        // Utils.hardWait(3000); //
 
 
-        Assert.assertEquals(isErrorMessageDisplayed(), expectedErrormessage, "Error message does not match expected value.");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@role='alert']")));
+
+
+        Assert.assertEquals(isErrorMessageDisplayed(), expectedErrormessage, "Error message does not match." + expectedErrormessage);
 
 
 
@@ -66,7 +74,7 @@ public class DemoLoginTest extends BasicTest {
     @DataProvider(name = "loginData")
     public Object[][] dataProvider() {
         return new Object[][] {
-            {"testtest@gmail.com" , "test1234", "Lỗi: Mật khẩu bạn nhập cho địa chỉ email testtest@gmail.com không đúng. Bạn quên mật khẩu?"}, // Invalid credentials
+            {"testtest@gmail.com" , "test1234", "Lỗi: Mật khẩu bạn nhập cho địa chỉ email testtest@gmail.com không đúng. Bạn quên mật khẩu?a"}, // Invalid credentials
             // {"duykhanhrc@gmail.com", "123456", ""},
             // {"duykhanhrc@gmail.com", "", "Lỗi: Mục nhập mật khẩu trống."},
             // {"", "123456", "Lỗi: Yêu cầu tên tài khoản."},
