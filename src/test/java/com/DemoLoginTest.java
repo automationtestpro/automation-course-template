@@ -4,6 +4,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.config.Constants;
+import com.pages.HomePage;
+import com.pages.LoginPage;
 import com.utils.BasicTest;
 import com.utils.Utils;
 
@@ -24,57 +26,57 @@ public class DemoLoginTest extends BasicTest {
     @Test(dataProvider = "loginData")
     public void loginTest(String username, String password, String expectedErrormessage) throws Exception {
 
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
         // Launch website
         String url = Constants.URL; // Use the URL from Constants class
-        driver.get(url);
+        // driver.get(url);
+        loginPage.open(url);
 
-        //Enter Email
+        // //Enter Email
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='username']"))).sendKeys(username);
-        // WebElement emailField = driver.findElement(By.xpath("//input[@id='username']"));
-        // emailField.sendKeys(username);
-        // Utils.hardWait(1000); // Wait for 1 second to simulate user typing
+        // loginPage.enterEmail(username);
 
-        //Enter Password
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='password']"))).sendKeys(password);
-        // WebElement passwordField = driver.findElement(By.xpath("//input[@id='password']"));
-        // passwordField.sendKeys(password);
-        // Utils.hardWait(1000); //
+        // //Enter Password
+        // loginPage.enterPassword(password);
 
 
-        //Click Login Button
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='login']"))).click();
-        // WebElement loginButton = driver.findElement(By.xpath("//button[@name='login']"));
-        // loginButton.click();
-        // Utils.hardWait(3000); //
+        // //Click Login Button
+        // loginPage.clickLoginButton();
+
+        // loginPage.login(username, password);
+
+        loginPage.enterEmail(username)
+                 .enterPassword(password)
+                 .clickLoginButton();
+
+        // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@role='alert']")));
 
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@role='alert']")));
-
-
-        Assert.assertEquals(isErrorMessageDisplayed(), expectedErrormessage, "Error message does not match." + expectedErrormessage);
+        Assert.assertEquals(loginPage.isErrorMessageDisplayed(), expectedErrormessage, "Error message does not match." + expectedErrormessage);
 
 
 
     }
 
 
-    public String isErrorMessageDisplayed() {
-        try {
-            // Check if the error message element is present
-            WebElement errorMessage = driver.findElement(By.xpath("//ul[@role='alert']"));
-            return errorMessage.getText();
-        } catch (Exception e) {
-            // If an exception occurs, it means the error message is not displayed
-            return "";
-        }
-    }
+    // public String isErrorMessageDisplayed() {
+    //     try {
+    //         // Check if the error message element is present
+    //         WebElement errorMessage = driver.findElement(By.xpath("//ul[@role='alert']"));
+    //         return errorMessage.getText();
+    //     } catch (Exception e) {
+    //         // If an exception occurs, it means the error message is not displayed
+    //         return "";
+    //     }
+    // }
 
 
     @DataProvider(name = "loginData")
     public Object[][] dataProvider() {
         return new Object[][] {
-            {"testtest@gmail.com" , "test1234", "Lỗi: Mật khẩu bạn nhập cho địa chỉ email testtest@gmail.com không đúng. Bạn quên mật khẩu?a"}, // Invalid credentials
+            {"testtest@gmail.com" , "test1234", "Lỗi: Mật khẩu bạn nhập cho địa chỉ email testtest@gmail.com không đúng. Bạn quên mật khẩu?"}, // Invalid credentials
             // {"duykhanhrc@gmail.com", "123456", ""},
             // {"duykhanhrc@gmail.com", "", "Lỗi: Mục nhập mật khẩu trống."},
             // {"", "123456", "Lỗi: Yêu cầu tên tài khoản."},
