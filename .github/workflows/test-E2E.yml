@@ -1,8 +1,14 @@
 name: Test E2E
 on:
-    push:
-        branches:
-            - "**"
+    # push:
+    #     branches:
+    #         - "**"
+    workflow_dispatch:
+        inputs:
+            test-suite:
+                description: 'Test suite to run'
+                required: true
+                default: 'chrome'
 jobs:
     test-e2e:
         runs-on: ubuntu-latest
