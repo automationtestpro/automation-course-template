@@ -5,6 +5,7 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="com.DemoLoginTest" />
+            <class name="com.HoverTest" />
         </classes>
     </test>
 </suite> <!-- Suite -->

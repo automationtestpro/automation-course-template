@@ -33,7 +33,7 @@ public class HoverTest extends BasicTest {
         
         // actions.moveToElement(hoverElement).perform();
         // Utils.hardWait(3000); // Wait for 1 second to simulate hover action
-        hoverToMenu("Hệ thống truyền động, Khung gầm");
+        hoverToMenu("Hệ thống truyền động, Khung gầm 1312313");
 
 
         // Hover to element 2
