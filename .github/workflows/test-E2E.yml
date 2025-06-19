@@ -32,7 +32,7 @@ jobs:
 
             - name: Run E2E tests
               run: |
-                mvn clean test -Dsuite=chrome
+                mvn clean test -Dsuite=${{github.event.inputs.test-suite}}
   
             - name: Upload test results
               uses: actions/upload-artifact@v4
