@@ -9,7 +9,41 @@ on:
                 description: 'Test suite to run'
                 required: true
                 default: 'chrome'
+    # schedule:
+    #     - cron: '0 0 * * *'  # Runs every day at midnight UTC
 jobs:
+    test-e2e:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Set up JDK
+              uses: actions/setup-java@v2
+              with:
+                distribution: 'temurin'
+                java-version: '17'
+
+            - name: Set up maven
+              run: sudo apt-get install -y maven
+
+            - name: Chrome
+              run: |
+                sudo apt-get update
+                sudo apt-get --only-upgrade install -y google-chrome-stable
+
+            - name: Run E2E tests
+              run: |
+                mvn clean test -Dsuite=${{github.event.inputs.test-suite}}
+  
+            - name: Upload test results
+              uses: actions/upload-artifact@v4
+              with:
+                name: test-results
+                path: |
+                    target/surefire-reports
+
+
     test-e2e:
         runs-on: ubuntu-latest
         steps:
