@@ -73,4 +73,4 @@ jobs:
               with:
                 name: test-results
                 path: |
-                    target/surefire-reports
+                    target/cucumber-reports.html

@@ -13,10 +13,10 @@ public class LoginPage extends BasePage {
     }
 
 
-    By emailField = By.xpath("//input[@id='username']");
+    By emailField = By.xpath("//input[@id='user-name']");
     By passwordField = By.xpath("//input[@id='password']");
-    By loginButton = By.xpath("//button[@name='login']");
-    By errorMessage = By.xpath("//ul[@role='alert']");
+    By loginButton = By.xpath("//input[@id='login-button']");
+    By errorMessage = By.xpath("//div[@id='flash']");
 
 
     // @FindBy(xpath = "//input[@id='username']")

@@ -5,4 +5,10 @@ public class Constants {
     public static final String URL = BASE_URL + "/tai-khoan/";
     public static final String HOMEPAGE_URL = BASE_URL + "/";
     public static final String BROWSER = "chrome";
+
+    public static final String BASE_URL_HEROKU = "https://the-internet.herokuapp.com/";
+    public static final String LOGIN_URL_HEROKU = BASE_URL_HEROKU + "login";
+
+    public static final String BASE_URL_SAUCELAB = "https://www.saucedemo.com";
+    public static final String HOMEPAGE_SAUCELAB_URL = BASE_URL_SAUCELAB + "/";
 }
