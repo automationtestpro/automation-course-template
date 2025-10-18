@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="SmokeSuite">
+    <test thread-count="1" parallel="classes" name="SmokeTest">
+        <classes>
+            <class name="com.Bai18_TabTest">
+                <methods>
+                    <include name="tabTest"/>
+                    <!-- <include name="loginTestFailed"/>
+                    <include name="loginTestFail"/> -->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
