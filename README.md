@@ -9,7 +9,7 @@ mvn clean test -Dtest=com.LoginTest
 
 ### Run many scripts
 ```
-mvn clean test -Dsuite=TestNG
+mvn clean test -Dsuite=Smoke
 ```
 
 
