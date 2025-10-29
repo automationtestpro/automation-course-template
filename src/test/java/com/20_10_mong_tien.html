@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng 20/10 Mộng Tiên</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Thiết lập font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffe6f0; /* Màu hồng nhạt */
+        }
+        .dancing-script {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Hiệu ứng hoa */
+        .flower {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0;
+            pointer-events: none;
+            user-select: none;
+            animation: rise-and-fade 3s ease-out forwards;
+            color: #d1007a; /* Màu hồng đậm của hoa */
+            z-index: 20;
+        }
+        .card {
+            background-color: #ffffff;
+            box-shadow: 0 20px 25px -5px rgba(225, 0, 150, 0.3), 0 10px 10px -5px rgba(225, 0, 150, 0.1);
+            border: 4px solid #ff70a6; /* Viền hồng lấp lánh */
+            position: relative; /* Quan trọng để ảnh căn chỉnh */
+            min-height: 120vh; /* Chiều cao tối thiểu 120% viewport */
+            overflow: hidden; /* Cắt ảnh nếu tràn ra ngoài border-radius */
+        }
+        .main-message {
+            color: #d1007a; /* Màu chữ chính */
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Thêm hiệu ứng xoay (rotation) vào animation */
+        @keyframes rise-and-fade {
+            0% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-250px) scale(1.5) rotate(720deg); /* Tăng quãng đường bay và thêm xoay */
+                opacity: 0;
+            }
+        }
+
+        /* 🚨 ĐÃ SỬA: CSS tùy chỉnh cho ảnh (Sửa lỗi dứt điểm) */
+
+        /* Quy tắc này áp dụng các style cơ bản (vị trí, nền) MỌI LÚC */
+        #image-display-area {
+            position: absolute;
+            inset: 0;
+            background-color: #fff;
+            border-radius: 1.5rem;
+            /* ĐÃ XÓA 'display: flex' và 'animation' khỏi đây.
+               Chúng sẽ không chạy khi class 'hidden' đang tồn tại.
+            */
+        }
+        
+        /* Quy tắc MỚI: Chỉ áp dụng display: flex và animation KHI
+           KHÔNG CÓ (not) class .hidden 
+        */
+        #image-display-area:not(.hidden) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1.2s ease-in forwards; /* Animation chỉ chạy khi hiện ra */
+        }
+        
+        #my-image {
+            width: 90%; 
+            height: auto; 
+            object-fit: contain; /* Giữ nguyên tỉ lệ, toàn bộ ảnh hiển thị */
+            border-radius: 1rem;
+            box-shadow: 0 0 20px rgba(255, 112, 166, 0.4);
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeInImage 1.5s ease-in-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInImage {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4" id="app">
+
+    <div id="card-container" 
+         class="card w-full max-w-lg sm:max-w-xl p-10 sm:p-12 rounded-3xl text-center cursor-pointer transform hover:scale-[1.02] transition-transform duration-300 min-h-[120vh]">
+
+        <div id="greeting-content" class="space-y-6">
+            <h1 class="text-4xl sm:text-6xl dancing-script main-message font-bold">
+                Chúc Mừng Ngày 20/10
+            </h1>
+            <div id="flower-area" class="relative">
+                <p class="text-2xl sm:text-3xl font-semibold mb-4 text-pink-600">
+                    Gửi em yêu Mộng Tiên,
+                </p>
+                <p class="text-xl text-gray-700">
+                    Chúc em yêu ngày Phụ Nữ Việt Nam tràn ngập niềm vui, hạnh phúc và luôn xinh đẹp, rạng ngời như những đóa hoa.
+                </p>
+                <p class="mt-8 text-2xl font-bold main-message dancing-script">
+                    Mọi điều tốt đẹp nhất sẽ đến với em!
+                </p>
+            </div>
+            <p id="instruction-text" class="text-base text-gray-500 mt-6">
+                (Nhấn hoặc chạm vào đây 3 lần để nhận bất ngờ!)
+            </p>
+        </div>
+
+        <div id="image-display-area" class="absolute inset-0 hidden rounded-3xl">
+            <img id="my-image" 
+                 src="/chuc-mung-mong-tien/5b31bc8086430b1d5252.jpg" 
+                 alt="Hình ảnh của bạn" 
+                 class="w-full h-full object-contain rounded-3xl"
+                 onerror="this.onerror=null; this.src='https://placehold.co/500x500/ff99cc/333333?text=L%E1%BB%97i+%E1%BA%A2nh+%C4%90%E1%BB%8Dc'">
+        </div>
+    </div>
+
+    <div id="flower-container"></div>
+
+    <script>
+        // Lớp và ký tự hoa
+        const FLOWER_EMOJI = "🌸";
+        const ROSE_EMOJI = "🌹";
+        const HEART_EMOJI = "💖";
+        const EMOJIS = [ROSE_EMOJI, ROSE_EMOJI, ROSE_EMOJI, FLOWER_EMOJI, HEART_EMOJI]; // Tăng tỉ lệ hoa hồng
+
+        const cardContainer = document.getElementById('card-container');
+        const greetingContent = document.getElementById('greeting-content');
+        const imageDisplayArea = document.getElementById('image-display-area');
+        const myImage = document.getElementById('my-image');
+        const instructionText = document.getElementById('instruction-text');
+        const flowerContainer = document.getElementById('flower-container');
+        
+        let interactionCount = 0;
+        const MAX_INTERACTIONS = 3; // Số lần nhấp/chạm để hiện ảnh
+
+        // Hàm tạo và hiển thị hoa
+        function createFlower(x, y) {
+            if (interactionCount >= MAX_INTERACTIONS) return; // Không tạo hoa nếu đã hiện ảnh
+
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            
+            // Chọn ngẫu nhiên hoa hồng, hoa anh đào hoặc trái tim
+            const emoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+            flower.innerText = emoji; 
+            
+            // Random hóa vị trí và kích thước một chút
+            const size = Math.random() * 0.8 + 2.0; // Kích thước từ 2.0rem đến 2.8rem
+            const initialX = x + (Math.random() - 0.5) * 80; // Thay đổi vị trí ban đầu lớn hơn
+            const initialY = y + (Math.random() - 0.5) * 20; 
+            
+            // Thêm độ trễ ngẫu nhiên cho mỗi bông hoa
+            const delay = Math.random() * 0.5; // Độ trễ từ 0s đến 0.5s
+
+            flower.style.left = initialX + 'px';
+            flower.style.top = initialY + 'px';
+            flower.style.fontSize = size + 'rem';
+            flower.style.animationDelay = delay + 's';
+            
+            flowerContainer.appendChild(flower);
+            
+            // Xóa phần tử sau khi animation kết thúc
+            flower.addEventListener('animationend', () => {
+                flower.remove();
+            });
+        }
+
+        // Xử lý sự kiện nhấn (chạm) trên thiết bị di động
+        function handleInteraction(e) {
+            e.preventDefault(); 
+            
+            if (interactionCount < MAX_INTERACTIONS) {
+                interactionCount++;
+                
+                let clientX, clientY;
+                if (e.touches) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                } else {
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                }
+
+                // Tạo nhiều bông hoa hơn (ví dụ: 6 bông) với các loại khác nhau
+                for (let i = 0; i < 6; i++) {
+                    const randomOffset = (Math.random() - 0.5) * 50; 
+                    createFlower(clientX + randomOffset, clientY);
+                }
+
+                // Cập nhật hướng dẫn số lần nhấp/chạm
+                if (interactionCount < MAX_INTERACTIONS) {
+                    instructionText.innerText = `(Nhấn hoặc chạm vào đây ${MAX_INTERACTIONS - interactionCount} lần nữa để nhận bất ngờ!)`;
+                } else {
+                    instructionText.innerText = `(Bất ngờ dành cho em đây!)`;
+                    showImage();
+                }
+            }
+        }
+
+        // Hàm hiển thị ảnh của bạn
+        function showImage() {
+            greetingContent.classList.add('hidden'); // Ẩn nội dung lời chúc
+            imageDisplayArea.classList.remove('hidden'); // Hiển thị vùng ảnh
+            
+            // Ngừng kích hoạt lại sự kiện sau khi ảnh đã hiện
+            cardContainer.removeEventListener('click', handleInteraction);
+            cardContainer.removeEventListener('touchstart', handleInteraction);
+            
+            // Tùy chỉnh ảnh nếu cần (ví dụ: đổi object-fit)
+            // myImage.style.objectFit = 'contain'; 
+        }
+
+        // Gắn sự kiện: ưu tiên touchstart cho di động, fallback sang click cho desktop
+        cardContainer.addEventListener('click', handleInteraction);
+        cardContainer.addEventListener('touchstart', handleInteraction);
+    </script>
+</body>
+</html>

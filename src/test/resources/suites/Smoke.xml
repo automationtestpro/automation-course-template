@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="SmokeSuite">
+<<<<<<< HEAD
+    <test thread-count="1" parallel="classes" name="SmokeTest">
+        <classes>
+            <class name="com.Bai18_TabTest">
+                <methods>
+                    <include name="tabTest"/>
+=======
+    <parameter name="browser" value="chrome"/>
+    <test thread-count="1" parallel="classes" name="SmokeTest"> 
+        <classes>
+            <class name="com.Bai19_ICEHRM_LoginTest">
+                <methods>
+                    <include name="loginTest"/>
+>>>>>>> bai-19
+                    <!-- <include name="loginTestFailed"/>
+                    <include name="loginTestFail"/> -->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
