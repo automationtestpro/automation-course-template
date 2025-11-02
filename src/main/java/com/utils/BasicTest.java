@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
@@ -21,6 +22,7 @@ public abstract class BasicTest {
     
     public static final Logger logger = LogManager.getLogger();
     protected static WebDriver driver;
+    protected static Actions action;
     // private String driverPath;
 
     @BeforeMethod
@@ -45,6 +47,8 @@ public abstract class BasicTest {
             System.out.println("Browser is not supported");
         }
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        action = new Actions(driver);
     }
 
     @AfterMethod

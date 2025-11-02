@@ -4,14 +4,24 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Collection;
+
 //import static org.junit.jupiter.api.Assertions.fail;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement; // Import this
+
+import com.pages.BannerPage;
+import com.pages.CollectionDetails;
 import com.utils.BasicTest;
 import com.utils.Utils;
 
 public class Bai16_LoginTest extends BasicTest {
+
+
+    // BannerPage bannerPage = new BannerPage();
+    // CollectionDetails collectionDetails = new CollectionDetails();
+
     @Test(dataProvider = "loginData")
     public void loginTestSuccess(String email, String password, String expectedMessage) throws Exception {
         // Launch website
