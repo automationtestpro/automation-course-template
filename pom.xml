@@ -8,18 +8,19 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <suite>TestNG</suite> <!-- Thêm dòng này để định nghĩa suite mặc định -->
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <jre.level>1.8</jre.level>
         <jdk.level>1.8</jdk.level>
         <maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
-        <selenium.version>3.141.59</selenium.version>
+        <selenium.version>4.15.0</selenium.version>
         <testng.version>7.1.0</testng.version>
         <extentreports.version>4.0.8</extentreports.version>
         <extentreports.adapter.version>1.0.3</extentreports.adapter.version>
         <lombok.version>1.18.22</lombok.version>
-        <webdrivermanager.version>4.2.0</webdrivermanager.version>
+        <webdrivermanager.version>5.5.3</webdrivermanager.version>
         <log4j.version>2.17.2</log4j.version>
         <allure.version>2.14.0</allure.version>
         <allure.maven.version>2.10.0</allure.maven.version>
@@ -82,21 +83,21 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
+        <!-- <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>7.5.1</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
+        <!-- <dependency>
+             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
             <version>${selenium.version}</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
