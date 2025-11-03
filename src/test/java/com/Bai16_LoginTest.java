@@ -34,22 +34,16 @@ public class Bai16_LoginTest extends BasicTest {
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
+        
+        //Nhập email và pass
+        waitElementVisible("//input[@id='username']").sendKeys(emailInput);
+        waitElementVisible("//input[@id='password']").sendKeys(passWord);
 
-        //Nhập email
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='username']"))).sendKeys(emailInput);
-        //Nhập password
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='password']"))).sendKeys(passWord);
-
-         //Click nút đăng nhập
-        WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable((By.xpath("//button[@name='login']"))));
-        loginBtn.click();
-
-
-         //Chờ URL đổi sang trang tài khoản 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'Xin chào')]")));
+        //Click nút "Đăng nhập"
+        waitElementClickable("//button[@name='login']").click();
 
         // Kiểm đăng nhập thành công (nút login biến mất)
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[@name='login']")));
+        waitElementVisible("//p[contains(text(), 'Xin chào')]");
         System.out.println("Đăng nhập thành công");
         }
 
@@ -61,17 +55,15 @@ public class Bai16_LoginTest extends BasicTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
         
-       //Nhập email
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='username']"))).sendKeys(emailInput);
-        //Nhập password
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='password']"))).sendKeys(passWord);
+       //Nhập email và pass
+        waitElementVisible("//*[@id='username']").sendKeys(emailInput);
+        waitElementVisible("//*[@id='password']").sendKeys(passWord);
         
          //Click nút đăng nhập
-        WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='login']")));
-        loginBtn.click();
+        waitElementClickable("//button[@name='login']").click();
 
         // Kiểm tra lỗi
-         WebElement errorrMessageText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='woocommerce-error']/li")));
+         WebElement errorrMessageText = waitElementVisible("//ul[@class='woocommerce-error']/li");
         Assert.assertTrue(errorrMessageText.isDisplayed());
 
     }

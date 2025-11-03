@@ -20,22 +20,16 @@ public class Bai16_RegisterTest extends BasicTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
         // Nhập email
-        WebElement emailInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='reg_email']")));
-        emailInput.sendKeys("testtest@gmail.com");
-
+        waitElementVisible("//input[@id='reg_email']")
+        .sendKeys("testtest@gmail.com");
         // Để trống password
-         WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='reg_password']")));
-         passwordInput.clear();
-
+         waitElementVisible("//input[@id='reg_password']").sendKeys("");
          // Nhấn nút đăng ký
-        WebElement registerBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='register']")));
-        registerBtn.click();
+       waitElementClickable("//button[@name='register']").click();
 
         // Kiểm tra lỗi
-        WebElement errorrMessageText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//ul[@class='woocommerce-error']/li")));
+        WebElement errorrMessageText = waitElementVisible(By.xpath("//ul[@class='woocommerce-error']/li"));
         Assert.assertTrue(errorrMessageText.isDisplayed());
-
-
     }
 
     /*public boolean isElementDisplayed(WebElement element){

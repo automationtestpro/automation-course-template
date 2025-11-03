@@ -32,23 +32,20 @@ public class Bai19_ICEHRM_LoginTest extends BasicTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
-        //Nhập email
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='username']"))).sendKeys(userName);
-
-        //Nhập password
-         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='password']"))).sendKeys(passWord);
+        //Nhập email và pass
+        waitElementVisible("//input[@id='username']").sendKeys(userName);
+        waitElementVisible("//input[@id='password']").sendKeys(passWord);
 
          //Click nút đăng nhập
-        WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[normalize-space()='Log in']")));
-        loginBtn.click();
-
-
+        waitElementClickable("//button[normalize-space()='Log in']").click();
+        
         if(expectedMesageErrorDisplay == false){
             // Login thành công: Mất nút login
-            wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[normalize-space()='Log in']")));
+            waitElementVisible("//a[contains(text(),'Employees') or contains(text(),'Dashboard')]");
+            System.out.println("Login success");
         } else {
             // Login Fail: show error
-            WebElement errorMessageText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='alert alert-danger']")));
+            WebElement errorMessageText = waitElementVisible("//div[@class='alert alert-danger']");
             Assert.assertTrue(errorMessageText.getText().contains("Login failed"));
         }
     }

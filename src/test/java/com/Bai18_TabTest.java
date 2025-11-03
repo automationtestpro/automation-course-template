@@ -31,20 +31,15 @@ public class Bai18_TabTest extends BasicTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
-        //Nhập email
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='username']"))).sendKeys(emailInput);
-        //Nhập password
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='password']"))).sendKeys(passWord);
+        //Nhập email và pass
+        waitElementVisible("//input[@id='username']").sendKeys(emailInput);
+        waitElementVisible("//input[@id='password']").sendKeys(passWord);
 
-         //Click nút đăng nhập
-        WebElement loginBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@name='login']")));
-        loginBtn.click();
-
-         //Chờ URL đổi sang trang tài khoản 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'Xin chào')]")));
+        //Click nút "Đăng nhập"
+        waitElementClickable("//button[@name='login']").click();
 
         // Kiểm đăng nhập thành công (nút login biến mất)
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//button[@name='login']")));
+        waitElementVisible("//p[contains(text(), 'Xin chào')]");
         System.out.println("Đăng nhập thành công");
 
         //Lưu lại handle của tab hiện tại (tab cũ)
@@ -61,11 +56,10 @@ public class Bai18_TabTest extends BasicTest {
         driver.switchTo().window(tabs.get(tabs.size() - 1));
 
         //Click nút "Đăng nhập" trên tab mới
-       WebElement lgBtn =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//strong[text()='Đăng nhập']")));
-       lgBtn.click();
+       waitElementClickable("//strong[text()='Đăng nhập']").click();
 
        //Kiểm tra user vẫn đang đăng nhập
-       WebElement verifyAccount = wait.until(ExpectedConditions.visibilityOfElementLocated((By.xpath("//p[contains(text(), 'Xin chào')]"))));
+       WebElement verifyAccount = waitElementVisible("//p[contains(text(), 'Xin chào')]");
        Assert.assertTrue(verifyAccount.isDisplayed(),("Không tìm thấy tài khoản"));
 
 
