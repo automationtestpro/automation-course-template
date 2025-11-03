@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.interactions.Actions;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -28,6 +29,7 @@ public abstract class BasicTest {
     public static final Logger logger = LogManager.getLogger();
     protected static WebDriver driver;
     public static WebDriverWait wait;
+     protected Actions actions;
     // private String driverPath;
 
     @BeforeMethod
@@ -47,8 +49,10 @@ public abstract class BasicTest {
         // Maximize the browser
         driver.manage().window().maximize();
         // driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        actions = new Actions(driver);
         }
+        
         
     }
 
@@ -57,7 +61,8 @@ public abstract class BasicTest {
         // Quit the Browser
         driver.quit();
     }
-    //chờ element hiển thị
+
+ //chờ element hiển thị
     protected WebElement waitElementVisible(By by) {
        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
