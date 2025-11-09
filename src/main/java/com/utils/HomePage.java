@@ -10,10 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage extends BasicTest {
 
-    public HomePage(WebDriver givenDriver) {
-        PageFactory.initElements(BasicTest.driver, this);
-    }
 
+    public HomePage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+    
     By locatorInp = By.xpath("//input[@placeholder='Bạn muốn đi đâu?']");
     By suggestion = By.xpath("//div[@class='sb-dropdown__item-box ng-star-inserted'][4]");
     By checkInDate = By.xpath("//button[contains(@class,'ds__btn-left')]");

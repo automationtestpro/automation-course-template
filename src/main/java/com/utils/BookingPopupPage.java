@@ -6,23 +6,26 @@ import org.openqa.selenium.support.PageFactory;
 
 public class BookingPopupPage extends BasicTest {
 
-    public BookingPopupPage(WebDriver givenDriver) {
-        PageFactory.initElements(BasicTest.driver, this);
-    }
 
-    By popupTilte = By.xpath("//span[text()='Yêu cầu đặt Combo']");
+    public BookingPopupPage(WebDriver driver) {
+    this.driver = driver; 
+    PageFactory.initElements(driver, this);
+}
+
+
+    By popupTitle = By.xpath("//span[text()='Yêu cầu đặt Combo']");
     By nameInput = By.xpath("//input[@name='fullName']");
     By phoneInput = By.xpath("//input[@name='phoneNumber']");
     By emailInput = By.xpath("//input[@name='email']");
     By messageInput = By.xpath("//textarea[contains(@placeholder,'Ví dụ')]");
 
     public boolean isPopupDisplayed() {
-        return waitElementVisible(popupTilte).isDisplayed();
+        return waitElementVisible(popupTitle).isDisplayed();
     }
 
     // Verify các field hiển thị
     public boolean areFieldsDisplayed() {
-        waitElementVisible(popupTilte); 
+        waitElementVisible(popupTitle); 
          return waitElementVisible(nameInput).isDisplayed()
             && waitElementVisible(phoneInput).isDisplayed()
             && waitElementVisible(emailInput).isDisplayed()
@@ -30,7 +33,7 @@ public class BookingPopupPage extends BasicTest {
     }
 
 
-    // Lấy giá trị field verify thông tin
+    // Lấy giá trị field verify thông tin)
     public String getName() {
         return waitElementVisible(nameInput).getAttribute("value");
     }

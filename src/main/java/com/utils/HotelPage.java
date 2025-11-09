@@ -7,17 +7,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
 
 
 public class HotelPage extends BasicTest {
+
+    WebDriver driver;
+    WebDriverWait wait;
 
 
     By hotelList = By.xpath("//span[contains(@class,'pdv__hotel--name')]");
     By hotelDetailTitle = By.xpath("h1.ho2__title--hotel-name");
 
     public HotelPage(WebDriver driver) {
-        PageFactory.initElements(BasicTest.driver, this);
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        PageFactory.initElements(driver, this);
     }
+
 
     public void selectHotel() {
         // Chờ danh sách hotel hiển thị

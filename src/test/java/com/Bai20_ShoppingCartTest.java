@@ -140,7 +140,6 @@ public class Bai20_ShoppingCartTest extends BasicTest {
         //kiểm tra khi xóa sp thành công
         WebElement deleteProduct = waitElementVisible("//div[@class='woocommerce-message']");
         Assert.assertTrue(deleteProduct.isDisplayed());
-        
 
         //kiểm tra giỏ hàng trống
         if (countBeforeDelete == 1) {
