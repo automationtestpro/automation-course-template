@@ -18,6 +18,7 @@ import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.Parameters;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -40,23 +41,23 @@ public abstract class BasicTest {
     @BeforeMethod
     //@Parameters({"browser"})
     public void preCondition(){ 
-        // Chromedriver path
-        // driverPath = "src/main/resources/WebDrivers/chromedriver.exe";
-        // ChromeOptions options = new ChromeOptions();
-        // System.setProperty("webdriver.chrome.driver", driverPath);
-        // driver = new ChromeDriver(options);
-         
+        
         String browser = Constants.browser;
         
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
+            
+            // 🚀 THÊM CÁC TÙY CHỌN ẨN DANH ĐỂ VƯỢT QUA CAPTCHA
+            options.setExperimentalOption("excludeSwitches", Arrays.asList("enable-automation"));
+            options.setExperimentalOption("useAutomationExtension", false);
+            
             //headless mode
             if (Constants.headless){
                 options.addArguments("--headless");
                 options.addArguments("--window-size=1920,1080");
             }
-           // options
+            // options
             driver = new ChromeDriver(options);
         }
         else if (browser.equalsIgnoreCase("edge")) {
@@ -73,8 +74,9 @@ public abstract class BasicTest {
         
         // Maximize the browser
         driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-                    // add driver action
+        // 🚀 Đặt lại thời gian chờ mặc định (Thường là 10 giây là đủ)
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15)); 
+                        // add driver action
         action = new Actions(driver);
 
     }
@@ -82,7 +84,7 @@ public abstract class BasicTest {
     @AfterMethod
     public void postCondition(){
         // Quit the Browser
-        driver.quit();
+        //driver.quit();
     }
 
 
@@ -177,5 +179,18 @@ public abstract class BasicTest {
     }
 
 
-
+    // hàm chờ
+    protected boolean isElementDisplayedQuickly(By by, int timeoutInSeconds) {
+        try {
+            // Tạo WebDriverWait cục bộ với timeout ngắn hơn
+            WebDriverWait quickWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+            
+            // Chờ phần tử hiển thị và kiểm tra isDisplayed()
+            return quickWait.until(ExpectedConditions.visibilityOfElementLocated(by)).isDisplayed();
+            
+        } catch (Exception e) {
+            // Bắt TimeoutException (và các Exception khác) và trả về false
+            return false;
+        }
+    }
 }
