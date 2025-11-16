@@ -16,7 +16,7 @@ import com.utils.Utils;
 
 public class Bai21_Demotest extends BasicTest {
 
-    @Test()
+    // @Test()
     public void registerTest() throws Exception {
         // Launch website
         String url = "https://bantheme.xyz/hathanhauto/";

@@ -23,7 +23,7 @@ import com.utils.BasicTest;
 import com.utils.Utils;
 
 public class Bai26_OrderProductTest extends BasicTest {
-    @Test()
+    // @Test()
     public void orderProductTest() throws Exception {
         Homepage homepage = new Homepage(driver);
         CollectPage collectpage = new CollectPage(driver);

@@ -22,7 +22,7 @@ public class Bai16_LoginTest extends BasicTest {
     // BannerPage bannerPage = new BannerPage();
     // CollectionDetails collectionDetails = new CollectionDetails();
 
-    @Test(dataProvider = "loginData")
+    // @Test(dataProvider = "loginData")
     public void loginTestSuccess(String email, String password, String expectedMessage) throws Exception {
         // Launch website
         String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";

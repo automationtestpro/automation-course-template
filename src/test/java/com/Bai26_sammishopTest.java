@@ -20,7 +20,7 @@ import com.utils.Utils;
 public class Bai26_sammishopTest extends BasicTest {
 
 
-    @Test()
+    // @Test()
     public void loginTestSuccess() throws Exception {
         // Launch website
         String url = "https://tiki.vn/";

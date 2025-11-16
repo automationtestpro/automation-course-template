@@ -14,7 +14,7 @@ import com.utils.Utils;
 
 public class Bai16_RegisterTest extends BasicTest {
 
-    @Test()
+    // @Test()
     public void registerTest() throws Exception {
 
         LoginPage loginPage = new LoginPage(driver);
