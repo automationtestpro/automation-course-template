@@ -15,7 +15,7 @@ import com.pages.Hathanhpage.Page.ProductHTPage;
 import com.utils.Utils;
 
 // --- Đã ĐỔI TÊN class ---
-public class Bai23_ShoppingCartTestPOM extends BasicTest {
+public class Bai23_ICHRM_LoginExc extends BasicTest {
     public int expectedQuantity = 0;
 
 
