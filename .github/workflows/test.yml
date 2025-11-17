@@ -42,3 +42,4 @@ jobs:
                 name: test-results
                 path: |
                     target/surefire-reports
+                    target/screenshots
