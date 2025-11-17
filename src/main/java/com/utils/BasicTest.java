@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
-
+import org.openqa.selenium.Dimension;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -73,7 +73,9 @@ public abstract class BasicTest {
         }
         
         // Maximize the browser
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
+        Dimension targetSize = new Dimension(1366, 768);
+        driver.manage().window().setSize(targetSize);
         // 🚀 Đặt lại thời gian chờ mặc định (Thường là 10 giây là đủ)
         wait = new WebDriverWait(driver, Duration.ofSeconds(15)); 
                         // add driver action
