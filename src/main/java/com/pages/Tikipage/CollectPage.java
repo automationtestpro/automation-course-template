@@ -27,32 +27,10 @@ public CollectPage clickMenu() {
     }   
 // choose one item
 public CollectPage clickItem() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        // 1. Tìm và chờ phần tử hiển thị (Bắt buộc phải tìm được trước khi cuộn)
-        // 💡 Sử dụng wait.until() trực tiếp nếu waitElementVisible không có
-        WebElement targetElement = wait.until(ExpectedConditions.visibilityOfElementLocated(ItemView)); 
-
-        // 2. Lấy tọa độ Y của phần tử
-        int yCoordinate = targetElement.getLocation().getY();
-        
-        // 3. Đặt Offset an toàn (giả sử header 150px)
-        int offset = 300; 
-        int targetScrollPosition = yCoordinate - offset;
-
-        // 4. SỬ DỤNG SMOOTH SCROLL (Cuộn từ từ)
-        // Cuộn đến vị trí an toàn (targetScrollPosition)
-        String script = String.format("window.scrollTo({ top: %d, behavior: 'smooth' });", targetScrollPosition);
-        js.executeScript(script);
-        
-        // 5. Chờ sau khi cuộn để trình duyệt hoàn tất animation
-        // 💡 Tăng thời gian chờ lên 500ms-1000ms là hợp lý cho smooth scroll
-        try { 
-            Thread.sleep(1000); // 1 giây cho cuộn mượt 
-        } catch (InterruptedException e) { 
-            Thread.currentThread().interrupt(); 
-        }
-
+      
+    WebElement scrollElement = driver.findElement(ItemView);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", scrollElement);
+    //Thread.sleep(500); 
         // 6. Click: Tìm lại phần tử và chờ clickability
         wait.until(ExpectedConditions.elementToBeClickable(ItemView)).click(); 
         return this;

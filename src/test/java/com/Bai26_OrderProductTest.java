@@ -51,7 +51,7 @@ public class Bai26_OrderProductTest extends BasicTest {
 
         Utils.hardWait(2000);
 
-         collectpage.clickItem();
+        collectpage.clickItem();
         Utils.takeScreenshot(driver, "img5");
         Utils.hardWait(3000);
 
