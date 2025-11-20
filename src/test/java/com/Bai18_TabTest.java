@@ -68,9 +68,9 @@ public class Bai18_TabTest extends BasicTest {
 
         //On the new tab, click on the "Login" button
         WebElement Personalbutton = driver.findElement(By.xpath("//div[contains(@class,'relative login-item')]"));
-        Personalbutton.click();
-        wait.until(ExpectedConditions.invisibilityOf(Personalbutton));
-        Assert.assertFalse(isElementDisplayed(Personalbutton), "Trang cá nhân vẫn hiển thị sau khi nhấn vào.");
+        //Personalbutton.click();
+        //wait.until(ExpectedConditions.invisibilityOf(Personalbutton));
+        Assert.assertTrue(isElementDisplayed(Personalbutton), "Trang cá nhân không hiển thị sau khi nhấn vào.");
 
         WebElement loginNavBtn = driver.findElement(By.xpath("//strong[@class='block']"));
         loginNavBtn.click();

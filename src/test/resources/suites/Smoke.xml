@@ -40,6 +40,16 @@
                     <include name="breadcrumbTest"/>
                 </methods>
             </class>
+            <class name="com.Bai22_DatePickerTest">
+                <methods>
+                    <include name="datePickerTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai23_ShoppingCartTest">
+                <methods>
+                    <include name="shoppingCartTest"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

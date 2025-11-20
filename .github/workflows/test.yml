@@ -34,7 +34,7 @@ jobs:
 
             - name: Run E2E tests
               run: |
-                mvn clean test -Dtest=com.Bai16_LoginTest
+                mvn clean test -Dtest=com.Bai26_OrderProductTest
   
             - name: Upload test results
               uses: actions/upload-artifact@v4
@@ -42,3 +42,4 @@ jobs:
                 name: test-results
                 path: |
                     target/surefire-reports
+                    target/screenshots
