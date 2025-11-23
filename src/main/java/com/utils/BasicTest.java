@@ -76,8 +76,8 @@ public abstract class BasicTest {
         driver.manage().window().maximize();
 
 
-        // Dimension targetSize = new Dimension(1366, 768);
-        // driver.manage().window().setSize(targetSize);
+         Dimension targetSize = new Dimension(1366, 768);
+        driver.manage().window().setSize(targetSize);
         // 🚀 Đặt lại thời gian chờ mặc định (Thường là 10 giây là đủ)
         wait = new WebDriverWait(driver, Duration.ofSeconds(25)); 
                         // add driver action
