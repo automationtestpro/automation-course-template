@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="SmokeSuite">
+    <parameter name="browser" value="chrome"/> 
+    <test thread-count="1" parallel="classes" name="SmokeTest">
+        <classes>
+            <class name="com.Bai16_LoginTest">
+                <methods>
+                    <include name="loginTestSuccess"/>
+                    <include name="loginTestFailed"/>
+                </methods>
+            </class>
+            <class name="com.Bai16_RegisterTest">
+                <methods>
+                    <include name="registerTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai17_ShoppingCartTest">
+                <methods>
+                    <include name="shoppingCartTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai18_TabTest">
+                <methods>
+                    <include name="tabTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai19_ICEHRM_LoginTest">
+                <methods>
+                    <include name="loginTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai20_ShoppingCartTest">
+                <methods>
+                    <include name="shoppingCartTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai21_BreadcrumbTest">
+                <methods>
+                    <include name="breadcrumbTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai22_DatePickerTest">
+                <methods>
+                    <include name="datePickerTest"/>
+                </methods>
+            </class>
+            <class name="com.Bai23_ShoppingCartTest">
+                <methods>
+                    <include name="shoppingCartTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
