@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.Keys;
 import com.utils.Utils;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AddEmployeePage extends BasePage {
 
@@ -39,9 +40,35 @@ public class AddEmployeePage extends BasePage {
     public AddEmployeePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
+    // random
+    // 1. Hàm sinh số ngẫu nhiên (Giữ nguyên logic để dùng nội bộ)
+    private String generateRandomNumber(int length) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            int randomDigit = ThreadLocalRandom.current().nextInt(0, 10);
+            sb.append(randomDigit);
+        }
+        return sb.toString();
+    }
 
+    /**
+     * Hàm này tự động tạo ID gồm 8 CHỮ SỐ, điền vào ô và trả về giá trị ID đó.
+     * Không cần truyền tham số nữa.
+     * @return String ID (8 số) vừa tạo
+     */
+    public String setRandomEmployeeId() {
+        // Cố định độ dài là 8 số tại đây
+        String randomId = generateRandomNumber(8); 
+        
+        setEmployeeId(randomId); // Gọi hàm điền vào UI
+        return randomId;         // Trả về để verify
+    }
+
+    // 2. Hàm setEmployeeId cũ (Giữ nguyên để thực hiện hành động nhập)
     public void setEmployeeId(String id) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(employeeId)).sendKeys(id);
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(employeeId));
+        element.clear(); 
+        element.sendKeys(id);
     }
 
     public void setFirstAndLastName(String fName, String lName) {
