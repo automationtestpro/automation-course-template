@@ -1,7 +1,5 @@
 package com;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -10,11 +8,12 @@ import com.utils.BasicTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LoginTest extends BasicTest {
+public class LoginTest2 extends BasicTest {
 
 
     @Test()
     public void loginTest() throws Exception {
+
 
 
 
@@ -23,11 +22,6 @@ public class LoginTest extends BasicTest {
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
-        Assert.assertEquals("1", "2");
-        
-        Thread.sleep(5000);
-
-
-
     }
+
 }

@@ -1,10 +1,13 @@
 package com.utils;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -35,5 +38,21 @@ public abstract class BasicTest {
     public void postCondition(){
         // Quit the Browser
         driver.quit();
+    }
+
+    public void login(String uname, String password) throws Exception {
+        // Launch website and navigate to https://bantheme.xyz/hathanhauto/tai-khoan/
+        String url = "https://bantheme.xyz/hathanhauto/tai-khoan/";
+        driver.get(url);
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
+            // Login
+            WebElement loginEmailFieldLocator = driver.findElement(By.id("username"));
+        WebElement loginPasswordFieldLocator = driver.findElement(By.id("password"));
+        WebElement loginButtonLocator = driver.findElement(By.cssSelector("button[name='login']"));
+
+        loginEmailFieldLocator.sendKeys(uname);
+        loginPasswordFieldLocator.sendKeys(password);
+        loginButtonLocator.click();
     }
 }
