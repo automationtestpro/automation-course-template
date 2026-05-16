@@ -10,6 +10,8 @@ import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.util.concurrent.TimeUnit;
 
@@ -19,8 +21,10 @@ public abstract class BasicTest {
     public static final Logger logger = LogManager.getLogger();
     protected static WebDriver driver;
     // private String driverPath;
+    protected String url;
 
     @BeforeMethod
+    // @Parameters({"baseUrl"})
     public void preCondition() {
         // Chromedriver path
         // driverPath = "src/main/resources/WebDrivers/chromedriver.exe";
@@ -32,6 +36,7 @@ public abstract class BasicTest {
         // Maximize the browser
         driver.manage().window().maximize();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        // driver.get(url);
     }
 
     @AfterMethod

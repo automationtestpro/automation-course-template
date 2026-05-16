@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="DemoSuite">
+    <parameter name="baseUrl" value="https://automationtestpro.com/"/>
+    <test thread-count="1" parallel="classes" name="DemoTest">
+        <classes>
+             <class name="com.LoginTest2" >
+             </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
