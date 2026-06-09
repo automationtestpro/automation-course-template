@@ -1,4 +1,4 @@
-package com;
+package com.src.test.java.com.ui;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;

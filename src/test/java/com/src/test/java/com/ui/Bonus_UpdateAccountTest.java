@@ -1,4 +1,4 @@
-package com;
+package com.src.test.java.com.ui;
 
 import org.aspectj.lang.annotation.After;
 import org.openqa.selenium.By;

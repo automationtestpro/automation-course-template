@@ -1,4 +1,4 @@
-package com;
+package com.src.test.java.com.ui;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -34,6 +34,19 @@ public class Bai16_LoginTest extends BasicTest {
         WebElement contentTextLocator = driver.findElement(By.className("woocommerce-MyAccount-content"));
         Assert.assertTrue(contentTextLocator.getText()
                 .contains("Xin chào"));
+
+
+
+                List<WebElement> accountInfoLocator = driver.findElements(By.cssSelector("div.woocommerce-MyAccount-content p"));
+
+
+                for (WebElement element : accountInfoLocator) {
+                    String elementText = element.getText();
+                    if (elementText.contains("Lốc lạnh (máy nén) xe Mercedes E CLass, GLK Class, SLK Class")) {
+                        // Perform actions or assertions if the element contains the specified text
+                        element.click(); // Example action: click the element
+                    }
+                }
 
     }
 
